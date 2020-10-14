@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewModel/HomePage.xaml.cs">
+    <Files>
+      <File FileName="CustomPickMe/ViewModel/CustomPickerViewModel.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/ViewModel/HomePage.xaml.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CustomPickMe" expanded="True">
             <Node name="CustomPickMe" expanded="True">
               <Node name="Model" expanded="True" />
-              <Node name="View" expanded="True">
-                <Node name="MainPage.cs" selected="True" />
-              </Node>
+              <Node name="View" expanded="True" />
               <Node name="ViewModel" expanded="True" />
               <Node name="App.xaml" expanded="True" />
             </Node>
