@@ -1,16 +1,23 @@
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Markup;
+using CustomPicker;
 
 namespace CustomPickMe
 {
     public class MainPage : ContentPage
     {
+        private Frame popupFrame;
         public MainPage()
         {
-            Button cancelButton = button("Cancel", Color.FromHex("#8B00FF"));
-            cancelButton.Clicked += OnCancel;
-
+            for(int i=0;i<5;i++)
+            {
+                CustomPickerViewModel.CustomPickerItems.Add(new CustomPickerItems("Added at mainpage",Color.Chocolate));
+            }
+            AbsoluteLayout outerLayout = new AbsoluteLayout
+            {
+                Padding = new Thickness(50)
+            };
 
             StackLayout listStackLayout = new StackLayout
             {
@@ -24,98 +31,94 @@ namespace CustomPickMe
                 Footer = "",
                 RowHeight = 50,
                 ItemTemplate = new DataTemplate(typeof(CustomViewCell)),
-                ItemsSource = CustomPickerViewModel.CustomPickerItems
+                ItemsSource = CustomPickerViewModel.CustomPickerItems,
+                //HeightRequest =(CustomPickerViewModel.CustomPickerItems.Count) * 50
             };
-            listView.HeightRequest = (CustomPickerViewModel.CustomPickerItems.Count) * 50;
-
             listView.ItemSelected += OnListViewItemSelected;
 
+            Button cancelButton = new Button
+            {
+                Text = "Cancel",
+                TextColor = Color.FromHex("#8B00FF"),
+                HorizontalOptions = LayoutOptions.End,
+                //Padding = new Thickness(0, 0, 0, 0)
+            };
+            cancelButton.Clicked += OnCancel;
+            
             listStackLayout.Children.Add(listView);
-            listStackLayout.Children.Add(buttonStackLayout);
+            listStackLayout.Children.Add(cancelButton);
 
-            outerStackLayout.Children.Add(listStackLayout);
-
-            Frame popupFrame = new Frame
+            popupFrame = new Frame
             {
-                HashShadow = true,
-
-
+                HasShadow = true,
+                IsVisible = false,
+                Scale = 0,
+                BackgroundColor = Color.White,
+                Content = listStackLayout
             };
 
-            /*
-                    < Frame
-            x: Name = "popuplayout"
-            HasShadow = "True"
-            IsVisible = "False"
-            Scale = "0"
-            BackgroundColor = "White"
-            AbsoluteLayout.LayoutFlags = "All"
-            AbsoluteLayout.LayoutBounds = "1,1,0.5,0.5" >
-            < StackLayout >
-                < Label Text = "One" />
- 
-                 < Label Text = "Two" />
-  
-                  < Label Text = "Three" />
-   
-                   < Label Text = "Four" />
-    
-                    < Label Text = "Five" />
-     
-                     < Label Text = "Six" />
-      
-                  </ StackLayout >
-      
-              </ Frame >
-            */
+            AbsoluteLayout.SetLayoutFlags(popupFrame, AbsoluteLayoutFlags.PositionProportional);
+            AbsoluteLayout.SetLayoutBounds(popupFrame, new Rectangle(0.5,0.5,300,(CustomPickerViewModel.CustomPickerItems.Count+2) * 50));
+            
+            Button popupButton = new Button
+            {
+                Text = "popup1",
+                FontSize = 20
+                //TextColor = Color.FromHex("#8B00FF"),
+                //Padding = new Thickness(0, 0, 20, 10)
+            };
+            popupButton.Clicked += Popup_Button_Clicked;
 
-
-            Label label = new Label();
+            Label label = new Label
+            {
+                FontSize = 20,
+                HorizontalOptions = LayoutOptions.End,
+                VerticalOptions = LayoutOptions.Center
+            };
             label.SetBinding(Label.TextProperty, "Selected");
-            label.FontSize = 15;
-
-            this.BindingContext = new MainPageItems();
-        }
-        private Button button(String text, Color color)
-        {
-            return new Button
+            
+            StackLayout innerContentsStackLayout=new StackLayout
             {
-                Text = text,
-                TextColor = color,
-                Padding = new Thickness(0, 0, 20, 10)
+                Orientation = StackOrientation.Horizontal,
+                Children = { popupButton, label}
             };
+
+            outerLayout.Children.Add(innerContentsStackLayout);
+            outerLayout.Children.Add(popupFrame);
+
+
+            this.BindingContext = new MainPageItem();
+            
+            Content = outerLayout;
         }
-        private async void Button_Clicked(object sender, EventArgs e)
+        
+        private async void Popup_Button_Clicked(object sender, EventArgs e)
         {
-            if (!this.popuplayout.IsVisible)
+            if (!this.popupFrame.IsVisible)
             {
-                this.popuplayout.IsVisible = !this.popuplayout.IsVisible;
-                this.popuplayout.AnchorX = 1;
-                this.popuplayout.AnchorY = 1;
+                BackgroundColor=Color.FromHex("#6f6f6f");
+                this.popupFrame.IsVisible = !this.popupFrame.IsVisible;
+               // this.popupFrame.AnchorX = 1;
+               // this.popupFrame.AnchorY = 1;
 
                 Animation scaleAnimation = new Animation(
-                    f => this.popuplayout.Scale = f,
-                    0.5,
+                    f => this.popupFrame.Scale = f,
+                    1,
                     1,
                     Easing.SinInOut);
 
                 Animation fadeAnimation = new Animation(
-                    f => this.popuplayout.Opacity = f,
-                    0.2,
+                    f => this.popupFrame.Opacity = f,
+                    1,
                     1,
                     Easing.SinInOut);
 
-                scaleAnimation.Commit(this.popuplayout, "popupScaleAnimation", 250);
-                fadeAnimation.Commit(this.popuplayout, "popupFadeAnimation", 250);
+                scaleAnimation.Commit(this.popupFrame, "popupScaleAnimation", 500);
+                fadeAnimation.Commit(this.popupFrame, "popupFadeAnimation", 500);
             }
             else
             {
-                await Task.WhenAny<bool>
-                  (
-                    this.popuplayout.FadeTo(0, 200, Easing.SinInOut)
-                  );
-
-                this.popuplayout.IsVisible = !this.popuplayout.IsVisible;
+                PopupFadeAway();
             }
         }
         private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -125,22 +128,33 @@ namespace CustomPickMe
             if (args.SelectedItem != null)
             {
                 ChangeTextToSelectedItem(((CustomPickerItems)args.SelectedItem).name);
+                PopupFadeAway();
             }
         }
 
-        private async void ChangeTextToSelectedItem(string text)
+        private void ChangeTextToSelectedItem(string text)
         {
-            if (BindingContext is MainPageItems)
+            if (BindingContext is MainPageItem)
             {
-                ((MainPageItems)BindingContext).Selected = text;
+                ((MainPageItem)BindingContext).Selected = text;
                 Console.WriteLine("@@@@@@" + text);
             }
-            await PopupNavigation.Instance.PopAsync();
         }
 
         private async void OnCancel(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PopAsync();
+            PopupFadeAway();
+        }
+        
+        private async void PopupFadeAway()
+        {
+            BackgroundColor=Color.White;
+            await Task.WhenAny<bool>
+            (
+                this.popupFrame.FadeTo(0, 200, Easing.SinInOut)
+            );
+
+            this.popupFrame.IsVisible = !this.popupFrame.IsVisible;
         }
     }
     public class CustomViewCell : ViewCell

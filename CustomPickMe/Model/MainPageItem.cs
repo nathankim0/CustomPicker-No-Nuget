@@ -7,7 +7,7 @@ namespace CustomPicker
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private string _selected="";
+		private string _selected="Selected Text";
 
 		public string Selected
 		{
