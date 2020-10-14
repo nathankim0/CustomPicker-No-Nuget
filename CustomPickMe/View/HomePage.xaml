@@ -6,6 +6,8 @@
         <StackLayout>
             <Button Text="PopupModal" Clicked="PopupModal_Button_OnClicked"/>
             <Button Text="PopupPage" Clicked="PopupPage_Button_OnClicked"/>
+            <Button Text="IosModalSample" Clicked="iosModal_Button_OnClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

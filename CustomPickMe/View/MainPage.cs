@@ -15,7 +15,7 @@ namespace CustomPickMe
             {
                 Padding = new Thickness(50)
             };
-
+            
             StackLayout listStackLayout = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -72,7 +72,6 @@ namespace CustomPickMe
 
             outerLayout.Children.Add(innerContentsStackLayout);
             outerLayout.Children.Add(popupFrame);
-
 
             BindingContext = new MainPageItem();
             
@@ -142,11 +141,6 @@ namespace CustomPickMe
             popupFrame.IsVisible = !popupFrame.IsVisible;
         }
     }
-    public class PopupView:ContentView
-    {
-        
-    }
-    
     public class CustomViewCell : ViewCell
     {
         public CustomViewCell()

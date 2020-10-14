@@ -20,5 +20,10 @@ namespace CustomPickMe.View
         {
             await Navigation.PushAsync(new MainPage());
         }
+        private async void iosModal_Button_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new IosModalPage());
+        }
+        
     }
 }

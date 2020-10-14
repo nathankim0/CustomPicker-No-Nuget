@@ -1,7 +1,5 @@
-﻿using System;
-using CustomPickMe.View;
+﻿using CustomPickMe.View;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CustomPickMe
 {
