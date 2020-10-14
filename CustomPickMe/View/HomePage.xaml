@@ -7,8 +7,6 @@
         <StackLayout Padding="40">
             <Button Text="PopupModal" Clicked="PopupModal_Button_OnClicked" FontSize="30" />
             <Button Text="PopupPage" Clicked="PopupPage_Button_OnClicked" FontSize="30"/>
-            <Button Text="IosModalSample" Clicked="iosModal_Button_OnClicked" FontSize="30"/>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
