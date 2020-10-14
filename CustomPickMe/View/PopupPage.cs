@@ -18,12 +18,38 @@ namespace CustomPicker2
             var cancelButton = new Button
             {
                 Text = "Cancel",
+                BackgroundColor = Color.FromHex("#EEEEEE"),
                 TextColor = Color.FromHex("#8B00FF"),
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                Padding = new Thickness(20,0,0,0)
+                Padding = new Thickness(20, 0, 0, 0)
             };
             cancelButton.Clicked += OnCancel;
+
+            var titleLabel = new Label
+            {
+                Text = "Select Category",
+                TextColor = Color.Black,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                VerticalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = 16
+            };
+
+            var grid = new Grid
+            {
+                ColumnDefinitions =
+                {
+                   new ColumnDefinition(),
+                   new ColumnDefinition(),
+                   new ColumnDefinition()
+                },
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+            grid.Children.Add(cancelButton, 0, 0);
+            grid.Children.Add(titleLabel, 1, 0);
+
 
             var modalLayout = new StackLayout
             {
@@ -36,32 +62,13 @@ namespace CustomPicker2
                     {
                         BackgroundColor = Color.FromHex("#EEEEEE"),
                         Orientation = StackOrientation.Vertical,
-                        VerticalOptions = LayoutOptions.StartAndExpand,
+                        VerticalOptions = LayoutOptions.Start,
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         HeightRequest=50,
                         MinimumHeightRequest=50,
                         Children =
                         {
-                            new StackLayout
-                            {
-                                Orientation = StackOrientation.Horizontal,
-                                VerticalOptions = LayoutOptions.FillAndExpand,
-                              //Padding = new Thickness(3, 0, 0, 0),
-                                Children =
-                                {
-                                    cancelButton,
-                                    new Label
-                                    {
-                                        Text="Select Category",
-                                        TextColor=Color.Black,
-                                        HorizontalOptions=LayoutOptions.CenterAndExpand,
-                                        VerticalOptions=LayoutOptions.FillAndExpand,
-                                        VerticalTextAlignment=TextAlignment.Center,
-                                        HorizontalTextAlignment=TextAlignment.Center,
-                                        FontSize=16
-                                    }
-                                }
-                            }
+                            grid
                         }
                     }
                 }
