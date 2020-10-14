@@ -1,4 +1,5 @@
 ﻿using System;
+using CustomPickMe.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace CustomPickMe
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new HomePage());
 
-            MainPage = new MainPage();
         }
 
         protected override void OnStart()

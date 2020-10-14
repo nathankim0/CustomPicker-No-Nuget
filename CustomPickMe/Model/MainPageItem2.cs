@@ -1,27 +1,23 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CustomPicker
+namespace CustomPicker2
 {
-    public class MainPageItem : INotifyPropertyChanged
+    public class MainPageItem2 : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private string _selected="Category";
+		private string _selected2="Category";
 
-		public string Selected
+		public string Selected2
 		{
-			get	{ return _selected;}
+			get	{ return _selected2;}
 			set
 			{
-				_selected = value;
+				_selected2 = value;
 				OnPropertyChanged();
 			}
-		}/*
-		public MainPageItems(string selected)
-		{
-			this._selected = selected;
-		}*/
+		}
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			var handler = PropertyChanged;

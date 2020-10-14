@@ -8,13 +8,10 @@ namespace CustomPickMe
     public class MainPage : ContentPage
     {
         private Frame popupFrame;
+        private AbsoluteLayout outerLayout;
         public MainPage()
         {
-            for(int i=0;i<5;i++)
-            {
-                CustomPickerViewModel.CustomPickerItems.Add(new CustomPickerItems("Added at mainpage",Color.Chocolate));
-            }
-            AbsoluteLayout outerLayout = new AbsoluteLayout
+            outerLayout = new AbsoluteLayout
             {
                 Padding = new Thickness(50)
             };
@@ -62,59 +59,49 @@ namespace CustomPickMe
             
             Button popupButton = new Button
             {
-                Text = "popup1",
                 FontSize = 20
-                //TextColor = Color.FromHex("#8B00FF"),
-                //Padding = new Thickness(0, 0, 20, 10)
             };
             popupButton.Clicked += Popup_Button_Clicked;
-
-            Label label = new Label
-            {
-                FontSize = 20,
-                HorizontalOptions = LayoutOptions.End,
-                VerticalOptions = LayoutOptions.Center
-            };
-            label.SetBinding(Label.TextProperty, "Selected");
+            popupButton.SetBinding(Button.TextProperty, "Selected");
             
             StackLayout innerContentsStackLayout=new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
-                Children = { popupButton, label}
+                Children = { popupButton}
             };
 
             outerLayout.Children.Add(innerContentsStackLayout);
             outerLayout.Children.Add(popupFrame);
 
 
-            this.BindingContext = new MainPageItem();
+            BindingContext = new MainPageItem();
             
             Content = outerLayout;
         }
         
-        private async void Popup_Button_Clicked(object sender, EventArgs e)
+        private void Popup_Button_Clicked(object sender, EventArgs e)
         {
-            if (!this.popupFrame.IsVisible)
+            if (!popupFrame.IsVisible)
             {
                 BackgroundColor=Color.FromHex("#6f6f6f");
-                this.popupFrame.IsVisible = !this.popupFrame.IsVisible;
-               // this.popupFrame.AnchorX = 1;
-               // this.popupFrame.AnchorY = 1;
+                popupFrame.IsVisible = !popupFrame.IsVisible;
+                popupFrame.AnchorX = 0.5; 
+                popupFrame.AnchorY = 0.5;
 
                 Animation scaleAnimation = new Animation(
-                    f => this.popupFrame.Scale = f,
-                    1,
+                    f => popupFrame.Scale = f,
+                    0.5,
                     1,
                     Easing.SinInOut);
 
                 Animation fadeAnimation = new Animation(
-                    f => this.popupFrame.Opacity = f,
-                    1,
+                    f => popupFrame.Opacity = f,
+                    0.5,
                     1,
                     Easing.SinInOut);
 
-                scaleAnimation.Commit(this.popupFrame, "popupScaleAnimation", 500);
-                fadeAnimation.Commit(this.popupFrame, "popupFadeAnimation", 500);
+                scaleAnimation.Commit(popupFrame, "popupScaleAnimation", 100);
+                fadeAnimation.Commit(popupFrame, "popupFadeAnimation", 100);
             }
             else
             {
@@ -123,8 +110,6 @@ namespace CustomPickMe
         }
         private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            ((ListView)sender).SelectedItem = null;
-
             if (args.SelectedItem != null)
             {
                 ChangeTextToSelectedItem(((CustomPickerItems)args.SelectedItem).name);
@@ -141,7 +126,7 @@ namespace CustomPickMe
             }
         }
 
-        private async void OnCancel(object sender, EventArgs e)
+        private void OnCancel(object sender, EventArgs e)
         {
             PopupFadeAway();
         }
@@ -151,12 +136,17 @@ namespace CustomPickMe
             BackgroundColor=Color.White;
             await Task.WhenAny<bool>
             (
-                this.popupFrame.FadeTo(0, 200, Easing.SinInOut)
+                popupFrame.FadeTo(0, 200, Easing.SinInOut)
             );
 
-            this.popupFrame.IsVisible = !this.popupFrame.IsVisible;
+            popupFrame.IsVisible = !popupFrame.IsVisible;
         }
     }
+    public class PopupView:ContentView
+    {
+        
+    }
+    
     public class CustomViewCell : ViewCell
     {
         public CustomViewCell()
