@@ -1,5 +1,8 @@
 using System;
-using CustomPicker2;
+using CustomPicker;
+using CustomPickMe;
+using CustomPickMeMain;
+using CustomPickMePage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,18 +15,20 @@ namespace CustomPickMe.View
         {
             InitializeComponent();
         }
+
         private async void PopupPage_Button_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage2());
         }
+
         private async void PopupModal_Button_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
         }
+
         private async void iosModal_Button_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new IosModalPage());
         }
-        
     }
 }

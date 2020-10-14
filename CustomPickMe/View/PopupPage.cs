@@ -5,7 +5,7 @@ using CustomPicker;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
-namespace CustomPicker2
+namespace CustomPickMePage
 {
     public class PopupPage : ContentPage
     {
@@ -41,9 +41,9 @@ namespace CustomPicker2
             {
                 ColumnDefinitions =
                 {
-                   new ColumnDefinition(),
-                   new ColumnDefinition(),
-                   new ColumnDefinition()
+                    new ColumnDefinition(),
+                    new ColumnDefinition(),
+                    new ColumnDefinition()
                 },
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
@@ -64,8 +64,8 @@ namespace CustomPicker2
                         Orientation = StackOrientation.Vertical,
                         VerticalOptions = LayoutOptions.Start,
                         HorizontalOptions = LayoutOptions.FillAndExpand,
-                        HeightRequest=50,
-                        MinimumHeightRequest=50,
+                        HeightRequest = 50,
+                        MinimumHeightRequest = 50,
                         Children =
                         {
                             grid
@@ -88,34 +88,43 @@ namespace CustomPicker2
 
             Content = modalLayout;
         }
+
         private async void OnCancel(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
+
         private async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             if (args.SelectedItem != null)
             {
-                ChangeTextToSelectedItem(((CustomPickerItems)args.SelectedItem).name);
+                MessagingCenter.Send<object, string>(this, "Hi", ((CustomPickerItems) args.SelectedItem).name);
+
+                //MainPage2.Selected2 = ((CustomPickerItems) args.SelectedItem).name;
+                await Navigation.PopModalAsync();
+                //ChangeTextToSelectedItem2(((CustomPickerItems) args.SelectedItem).name);
             }
-            await Navigation.PopModalAsync();
+           
         }
 
-        private void ChangeTextToSelectedItem(string text)
+        private void ChangeTextToSelectedItem2(string text)
         {
+            Console.WriteLine("ChangeTextToSelectedItem2 진입, Text: " + text);
+            
             if (BindingContext is MainPageItem2)
             {
-                ((MainPageItem2)BindingContext).Selected2 = text;
+                ((MainPageItem2) BindingContext).Selected2 = text;
                 Console.WriteLine("@@@@@@" + text);
             }
         }
+
         public class CustomViewCellPopupPage : ViewCell
         {
             public CustomViewCellPopupPage()
             {
-                StackLayout layout = new StackLayout() { Padding = new Thickness(2, 15) };
+                StackLayout layout = new StackLayout() {Padding = new Thickness(2, 15)};
                 layout.Orientation = StackOrientation.Horizontal;
-                Label nameLabel = new Label() { HorizontalOptions = LayoutOptions.CenterAndExpand };
+                Label nameLabel = new Label() {HorizontalOptions = LayoutOptions.CenterAndExpand};
                 nameLabel.SetBinding(Label.TextProperty, "name");
                 nameLabel.SetBinding(Label.TextColorProperty, "color");
                 layout.Children.Add(nameLabel);

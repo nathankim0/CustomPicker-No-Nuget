@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CustomPickMe.View.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="PopupModal" Clicked="PopupModal_Button_OnClicked"/>
-            <Button Text="PopupPage" Clicked="PopupPage_Button_OnClicked"/>
-            <Button Text="IosModalSample" Clicked="iosModal_Button_OnClicked"/>
+            <Button Text="PopupModal" Clicked="PopupModal_Button_OnClicked" />
+            <Button Text="PopupPage" Clicked="PopupPage_Button_OnClicked" />
+            <Button Text="IosModalSample" Clicked="iosModal_Button_OnClicked" />
 
         </StackLayout>
     </ContentPage.Content>

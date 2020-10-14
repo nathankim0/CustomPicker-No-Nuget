@@ -3,19 +3,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using CustomPicker;
 
-namespace CustomPickMe
+namespace CustomPickMeMain
 {
     public class MainPage : ContentPage
     {
         private Frame popupFrame;
         private AbsoluteLayout outerLayout;
+
         public MainPage()
         {
             outerLayout = new AbsoluteLayout
             {
                 Padding = new Thickness(50)
             };
-            
+
             StackLayout listStackLayout = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -41,7 +42,7 @@ namespace CustomPickMe
                 //Padding = new Thickness(0, 0, 0, 0)
             };
             cancelButton.Clicked += OnCancel;
-            
+
             listStackLayout.Children.Add(listView);
             listStackLayout.Children.Add(cancelButton);
 
@@ -55,36 +56,37 @@ namespace CustomPickMe
             };
 
             AbsoluteLayout.SetLayoutFlags(popupFrame, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(popupFrame, new Rectangle(0.5,0.5,300,(CustomPickerViewModel.CustomPickerItems.Count+2) * 50));
-            
+            AbsoluteLayout.SetLayoutBounds(popupFrame,
+                new Rectangle(0.5, 0.5, 300, (CustomPickerViewModel.CustomPickerItems.Count + 2) * 50));
+
             Button popupButton = new Button
             {
                 FontSize = 20
             };
             popupButton.Clicked += Popup_Button_Clicked;
             popupButton.SetBinding(Button.TextProperty, "Selected");
-            
-            StackLayout innerContentsStackLayout=new StackLayout
+
+            StackLayout innerContentsStackLayout = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
-                Children = { popupButton}
+                Children = {popupButton}
             };
 
             outerLayout.Children.Add(innerContentsStackLayout);
             outerLayout.Children.Add(popupFrame);
 
             BindingContext = new MainPageItem();
-            
+
             Content = outerLayout;
         }
-        
+
         private void Popup_Button_Clicked(object sender, EventArgs e)
         {
             if (!popupFrame.IsVisible)
             {
-                BackgroundColor=Color.FromHex("#6f6f6f");
+                BackgroundColor = Color.FromHex("#6f6f6f");
                 popupFrame.IsVisible = !popupFrame.IsVisible;
-                popupFrame.AnchorX = 0.5; 
+                popupFrame.AnchorX = 0.5;
                 popupFrame.AnchorY = 0.5;
 
                 Animation scaleAnimation = new Animation(
@@ -107,11 +109,12 @@ namespace CustomPickMe
                 PopupFadeAway();
             }
         }
+
         private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             if (args.SelectedItem != null)
             {
-                ChangeTextToSelectedItem(((CustomPickerItems)args.SelectedItem).name);
+                ChangeTextToSelectedItem(((CustomPickerItems) args.SelectedItem).name);
                 PopupFadeAway();
             }
         }
@@ -120,7 +123,7 @@ namespace CustomPickMe
         {
             if (BindingContext is MainPageItem)
             {
-                ((MainPageItem)BindingContext).Selected = text;
+                ((MainPageItem) BindingContext).Selected = text;
                 Console.WriteLine("@@@@@@" + text);
             }
         }
@@ -129,10 +132,10 @@ namespace CustomPickMe
         {
             PopupFadeAway();
         }
-        
+
         private async void PopupFadeAway()
         {
-            BackgroundColor=Color.White;
+            BackgroundColor = Color.White;
             await Task.WhenAny<bool>
             (
                 popupFrame.FadeTo(0, 200, Easing.SinInOut)
@@ -141,13 +144,14 @@ namespace CustomPickMe
             popupFrame.IsVisible = !popupFrame.IsVisible;
         }
     }
+
     public class CustomViewCell : ViewCell
     {
         public CustomViewCell()
         {
-            StackLayout layout = new StackLayout() { Padding = new Thickness(2, 15) };
+            StackLayout layout = new StackLayout() {Padding = new Thickness(2, 15)};
             layout.Orientation = StackOrientation.Horizontal;
-            Label nameLabel = new Label() { HorizontalOptions = LayoutOptions.CenterAndExpand };
+            Label nameLabel = new Label() {HorizontalOptions = LayoutOptions.CenterAndExpand};
             nameLabel.SetBinding(Label.TextProperty, "name");
             nameLabel.SetBinding(Label.TextColorProperty, "color");
             layout.Children.Add(nameLabel);
