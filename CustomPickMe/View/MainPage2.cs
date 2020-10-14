@@ -5,16 +5,6 @@ namespace CustomPickMePage
 {
     public class MainPage2 : ContentPage
     {
-        private static string _selected2 = "Category(PopupPage)";
-
-        public static string Selected2
-        {
-            get { return _selected2; }
-            set
-            {
-                _selected2 = value;
-            }
-        }
         public MainPage2()
         {
             AbsoluteLayout outerLayout = new AbsoluteLayout
@@ -24,15 +14,14 @@ namespace CustomPickMePage
 
             Button popupButton = new Button
             {
-                FontSize = 20,
-                Text = Selected2
+                FontSize = 30,
+                Text="Category Select"
             };
             popupButton.Clicked += Popup_Button_Clicked;
             
-            MessagingCenter.Subscribe<object, string>(this, "Hi", async (sender, arg) =>
+            MessagingCenter.Subscribe<object, string>(this, "Hi", (sender, arg) =>
             {
                 popupButton.Text = arg;
-                //await DisplayAlert("Message received", "arg=" + arg, "OK");
             });
 
             StackLayout innerContentsStackLayout = new StackLayout

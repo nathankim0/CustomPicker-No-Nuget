@@ -9,13 +9,11 @@ namespace CustomPickMeMain
     {
         private Frame popupFrame;
         private AbsoluteLayout outerLayout;
+        private StackLayout innerContentsStackLayout;
 
         public MainPage()
         {
-            outerLayout = new AbsoluteLayout
-            {
-                Padding = new Thickness(50)
-            };
+            outerLayout = new AbsoluteLayout();
 
             StackLayout listStackLayout = new StackLayout
             {
@@ -61,18 +59,44 @@ namespace CustomPickMeMain
 
             Button popupButton = new Button
             {
-                FontSize = 20
+                FontSize = 30
             };
             popupButton.Clicked += Popup_Button_Clicked;
             popupButton.SetBinding(Button.TextProperty, "Selected");
 
-            StackLayout innerContentsStackLayout = new StackLayout
+            innerContentsStackLayout = new StackLayout
             {
-                Orientation = StackOrientation.Horizontal,
-                Children = {popupButton}
+                BackgroundColor=Color.Bisque,
+                VerticalOptions=LayoutOptions.FillAndExpand,
+                HorizontalOptions=LayoutOptions.FillAndExpand,
+               // Orientation = StackOrientation.Vertical,
+                Children = {popupButton }
             };
 
-            outerLayout.Children.Add(innerContentsStackLayout);
+            Grid textGrid = new Grid();
+            for(int i = 0; i < 10; i++)
+            {
+                textGrid.RowDefinitions.Add(new RowDefinition());
+                textGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    textGrid.Children.Add(new Label { Text = "가려짐", FontSize = 15 },i,j);
+                }
+            }
+            innerContentsStackLayout.Children.Add(textGrid);
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) =>
+            {
+                PopupFadeAway();
+            };
+            innerContentsStackLayout.GestureRecognizers.Add(tapGestureRecognizer);
+
+            outerLayout.Children.Add(innerContentsStackLayout, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
             outerLayout.Children.Add(popupFrame);
 
             BindingContext = new MainPageItem();
@@ -84,7 +108,7 @@ namespace CustomPickMeMain
         {
             if (!popupFrame.IsVisible)
             {
-                BackgroundColor = Color.FromHex("#6f6f6f");
+                innerContentsStackLayout.BackgroundColor = Color.FromHex("#6f6f6f");
                 popupFrame.IsVisible = !popupFrame.IsVisible;
                 popupFrame.AnchorX = 0.5;
                 popupFrame.AnchorY = 0.5;
@@ -135,7 +159,7 @@ namespace CustomPickMeMain
 
         private async void PopupFadeAway()
         {
-            BackgroundColor = Color.White;
+            innerContentsStackLayout.BackgroundColor = Color.White;
             await Task.WhenAny<bool>
             (
                 popupFrame.FadeTo(0, 200, Easing.SinInOut)

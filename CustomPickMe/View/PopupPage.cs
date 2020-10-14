@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using CustomPicker;
 using Xamarin.Forms.PlatformConfiguration;
@@ -100,22 +99,9 @@ namespace CustomPickMePage
             {
                 MessagingCenter.Send<object, string>(this, "Hi", ((CustomPickerItems) args.SelectedItem).name);
 
-                //MainPage2.Selected2 = ((CustomPickerItems) args.SelectedItem).name;
                 await Navigation.PopModalAsync();
-                //ChangeTextToSelectedItem2(((CustomPickerItems) args.SelectedItem).name);
             }
            
-        }
-
-        private void ChangeTextToSelectedItem2(string text)
-        {
-            Console.WriteLine("ChangeTextToSelectedItem2 진입, Text: " + text);
-            
-            if (BindingContext is MainPageItem2)
-            {
-                ((MainPageItem2) BindingContext).Selected2 = text;
-                Console.WriteLine("@@@@@@" + text);
-            }
         }
 
         public class CustomViewCellPopupPage : ViewCell
