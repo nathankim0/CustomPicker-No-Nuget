@@ -35,6 +35,13 @@ namespace CustomPickMe
 
             outerStackLayout.Children.Add(listStackLayout);
 
+            Frame popupFrame = new Frame
+            {
+                HashShadow = true,
+
+
+            };
+
             /*
                     < Frame
             x: Name = "popuplayout"

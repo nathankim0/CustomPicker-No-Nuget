@@ -15,6 +15,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="View\MainPage.xaml.cs" />
+    <Content Include="View\.DS_Store" />
   </ItemGroup>
 </Project>
