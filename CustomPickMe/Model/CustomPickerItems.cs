@@ -10,6 +10,7 @@ namespace CustomPicker
 
 		private string _name;
 		private Color _color;
+		private string _imageSource;
 
 		public string name
 		{
@@ -29,11 +30,26 @@ namespace CustomPicker
 				OnPropertyChanged();
 			}
 		}
-		
-		public CustomPickerItems (string _name, Color _color)
+		public string imagesource
 		{
-		this._name=_name;
-		this._color=_color;
+			get { return _imageSource; }
+			set
+			{
+				_imageSource = value;
+				OnPropertyChanged();
+			}
+		}
+		public CustomPickerItems(string _name, Color _color)
+		{
+			this._name = _name;
+			this._color = _color;
+		}
+
+		public CustomPickerItems (string _name, Color _color, string _imageSource)
+		{
+			this._name=_name;
+			this._color=_color;
+			this._imageSource = _imageSource;
 		}
 
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)

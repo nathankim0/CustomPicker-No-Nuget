@@ -9,15 +9,18 @@ namespace CustomPicker
         {
             ObservableCollection<CustomPickerItems> customPickerItems = new ObservableCollection<CustomPickerItems>()
             {
-                new CustomPickerItems("General", Color.Red),
-                new CustomPickerItems("Health", Color.Orange),
-                new CustomPickerItems("Career", Color.Yellow),
-                new CustomPickerItems("Relationship", Color.Green),
-                new CustomPickerItems("Learning", Color.Blue),
-                new CustomPickerItems("Enjoyment", Color.DarkBlue),
-                new CustomPickerItems("Wealth", Color.Purple),
-                new CustomPickerItems("Travel", Color.Black)
+                new CustomPickerItems("General", Color.Red, "apple"),
+                new CustomPickerItems("Health", Color.Orange,"facetime.png"),
+                new CustomPickerItems("Career", Color.Black,"mac"),
+                new CustomPickerItems("Relationship", Color.Green,"maps"),
+                new CustomPickerItems("Learning", Color.Blue,"shortcuts"),
+                new CustomPickerItems("Enjoyment", Color.DarkBlue,"facetime"),
+                new CustomPickerItems("Wealth", Color.Purple,"mac"),
             };
+            for (int i = 1; i <= 5; i++)
+            {
+                customPickerItems.Add(new CustomPickerItems("ADD"+i.ToString(), Color.Black, "apple"));
+            }
 
             return customPickerItems;
         }

@@ -113,6 +113,16 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\apple.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\facetime.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mac.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\apple.imageset\apple.png" />
+    <ImageAsset Include="Assets.xcassets\facetime.imageset\facetime.png" />
+    <ImageAsset Include="Assets.xcassets\mac.imageset\mac.png" />
+    <ImageAsset Include="Assets.xcassets\maps.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\shortcuts.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\shortcuts.imageset\shortcuts.png" />
+    <ImageAsset Include="Assets.xcassets\maps.imageset\maps.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,5 +142,12 @@
       <Project>{D4B63DFB-5A14-409B-B4A6-79E2A2772813}</Project>
       <Name>CustomPickMe</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\apple.imageset\" />
+    <Folder Include="Assets.xcassets\facetime.imageset\" />
+    <Folder Include="Assets.xcassets\mac.imageset\" />
+    <Folder Include="Assets.xcassets\maps.imageset\" />
+    <Folder Include="Assets.xcassets\shortcuts.imageset\" />
   </ItemGroup>
 </Project>

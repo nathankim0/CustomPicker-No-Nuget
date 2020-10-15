@@ -17,4 +17,7 @@
   <ItemGroup>
     <Content Include="View\.DS_Store" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
 </Project>

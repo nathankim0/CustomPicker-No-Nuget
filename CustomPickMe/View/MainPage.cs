@@ -54,8 +54,17 @@ namespace CustomPickMeMain
             };
 
             AbsoluteLayout.SetLayoutFlags(popupFrame, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(popupFrame,
-                new Rectangle(0.5, 0.5, 300, (CustomPickerViewModel.CustomPickerItems.Count + 2) * 50));
+
+            if (CustomPickerViewModel.CustomPickerItems.Count <= 8)
+            {
+                AbsoluteLayout.SetLayoutBounds(popupFrame,
+               new Rectangle(0.5, 0.5, 300, (CustomPickerViewModel.CustomPickerItems.Count + 2) * 50));
+            }
+            else
+            {
+                AbsoluteLayout.SetLayoutBounds(popupFrame,
+                    new Rectangle(0.5, 0.5, 300, 550));
+            }
 
             Button popupButton = new Button
             {
