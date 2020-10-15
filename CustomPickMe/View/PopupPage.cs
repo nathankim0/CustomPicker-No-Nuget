@@ -83,7 +83,7 @@ namespace CustomPickMePage
                 {
                     Grid itemGrid = new Grid
                     {
-                        Padding = 25,
+                        Padding = 15,
                         RowDefinitions =
                         {
                             new RowDefinition
@@ -113,6 +113,15 @@ namespace CustomPickMePage
                     nameLabel.SetBinding(Label.TextColorProperty, "color");
                     itemGrid.Children.Add(nameLabel, 1, 0);
 
+                    var separator = new BoxView
+                    {
+                        HeightRequest = 1,
+                        BackgroundColor = Color.Black,
+                        VerticalOptions = LayoutOptions.End
+                    };
+                    itemGrid.Children.Add(separator);
+                    Grid.SetColumnSpan(separator, 3);
+                
                     var tapGestureRecognizer = new TapGestureRecognizer();
                     tapGestureRecognizer.Tapped += (s, e) =>
                     {
