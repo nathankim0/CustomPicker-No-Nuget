@@ -1,8 +1,13 @@
 ﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/Model/CustomPickerItems.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/View/PopupPage.cs">
     <Files>
       <File FileName="CustomPickMe/Model/CustomPickerItems.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/View/PopupPage.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/View/MainPage2.cs" Line="22" Column="83" />
+      <File FileName="CustomPickMe/View/MainPage.cs" Line="30" Column="70" />
+      <File FileName="CustomPickMe/Model/CustomPickerData.cs" Line="18" Column="45" />
+      <File FileName="CustomPickMe/Model/MainPageItem.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,10 +15,10 @@
           <Node name="CustomPickMe" expanded="True">
             <Node name="CustomPickMe" expanded="True">
               <Node name="images" expanded="True" />
-              <Node name="Model" expanded="True">
-                <Node name="CustomPickerItems.cs" selected="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="View" expanded="True">
+                <Node name="PopupPage.cs" selected="True" />
               </Node>
-              <Node name="View" expanded="True" />
               <Node name="ViewModel" expanded="True" />
               <Node name="App.xaml" expanded="True" />
             </Node>

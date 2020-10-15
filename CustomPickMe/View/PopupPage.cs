@@ -129,6 +129,7 @@ namespace CustomPickMePage
 
                     return itemGrid;
                 }),
+                VerticalScrollBarVisibility=ScrollBarVisibility.Always,
                 ItemsSource = CustomPickerViewModel.CustomPickerItems,
             };
 

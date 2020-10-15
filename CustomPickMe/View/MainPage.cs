@@ -27,8 +27,7 @@ namespace CustomPickMeMain
                 Footer = "",
                 RowHeight = 50,
                 ItemTemplate = new DataTemplate(typeof(CustomViewCell)),
-                ItemsSource = CustomPickerViewModel.CustomPickerItems,
-                //HeightRequest =(CustomPickerViewModel.CustomPickerItems.Count) * 50
+                ItemsSource = CustomPickerViewModel.CustomPickerItems
             };
             listView.ItemSelected += OnListViewItemSelected;
 
@@ -37,6 +36,7 @@ namespace CustomPickMeMain
                 Text = "Cancel",
                 TextColor = Color.FromHex("#8B00FF"),
                 HorizontalOptions = LayoutOptions.End,
+                BackgroundColor = Color.White
                 //Padding = new Thickness(0, 0, 0, 0)
             };
             cancelButton.Clicked += OnCancel;
