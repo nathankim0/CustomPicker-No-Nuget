@@ -72,26 +72,18 @@ namespace CustomPickMePage
                     }
                 }
             };
-            /*
-            var listView = new Xamarin.Forms.ListView
-            {
-                Footer = "",
-                RowHeight = 50,
-                ItemTemplate = new DataTemplate(typeof(CustomViewCellPopupPage)),
-                ItemsSource = CustomPickerViewModel.CustomPickerItems,
-                HeightRequest = (CustomPickerViewModel.CustomPickerItems.Count) * 50
-            };
-            listView.ItemSelected += OnListViewItemSelected;
-            */
-            //modalLayout.Children.Add(listView);
 
             var collectionView = new CollectionView
             {
+                VerticalScrollBarVisibility = ScrollBarVisibility.Always,
+                ItemsSource = CustomPickerViewModel.CustomPickerItems,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+
                 ItemTemplate = new DataTemplate(() =>
                 {
                     Grid itemGrid = new Grid
                     {
-                        Padding = 10,
+                        Padding = 25,
                         RowDefinitions =
                         {
                             new RowDefinition
@@ -106,6 +98,7 @@ namespace CustomPickMePage
                             new ColumnDefinition()
                         }
                     };
+
                     Image image = new Image();
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
@@ -113,24 +106,23 @@ namespace CustomPickMePage
                     Label nameLabel = new Label()
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        VerticalOptions=LayoutOptions.CenterAndExpand
-                        
+                        VerticalOptions = LayoutOptions.CenterAndExpand
+
                     };
                     nameLabel.SetBinding(Label.TextProperty, "name");
                     nameLabel.SetBinding(Label.TextColorProperty, "color");
-                    itemGrid.Children.Add(nameLabel,1,0);
+                    itemGrid.Children.Add(nameLabel, 1, 0);
 
                     var tapGestureRecognizer = new TapGestureRecognizer();
                     tapGestureRecognizer.Tapped += (s, e) =>
                     {
-                        OnCollcetionViewItemSelected(nameLabel.Text);
+                        OnCollcetionViewItemSelected(nameLabel.Text, (FileImageSource)image.Source);
                     };
                     itemGrid.GestureRecognizers.Add(tapGestureRecognizer);
 
                     return itemGrid;
-                }),
-                VerticalScrollBarVisibility=ScrollBarVisibility.Always,
-                ItemsSource = CustomPickerViewModel.CustomPickerItems,
+                })
+
             };
 
             modalLayout.Children.Add(collectionView);
@@ -143,6 +135,35 @@ namespace CustomPickMePage
             await Navigation.PopModalAsync();
         }
 
+
+        private async void OnCollcetionViewItemSelected(string text, string source)
+        {
+            if (text != null && text != "")
+            {
+                MessagingCenter.Send<object, string>(this, "text", text);
+                MessagingCenter.Send<object, string>(this, "source", source);
+
+                await Navigation.PopModalAsync();
+            }
+        }
+    }
+}
+
+
+
+        /*
+        var listView = new Xamarin.Forms.ListView
+        {
+            Footer = "",
+            RowHeight = 50,
+            ItemTemplate = new DataTemplate(typeof(CustomViewCellPopupPage)),
+            ItemsSource = CustomPickerViewModel.CustomPickerItems,
+            HeightRequest = (CustomPickerViewModel.CustomPickerItems.Count) * 50
+        };
+        listView.ItemSelected += OnListViewItemSelected;
+        
+        //modalLayout.Children.Add(listView);
+        
         private async void OnListViewItemSelected(object sender, SelectionChangedEventArgs args)
         {
             if (args.CurrentSelection != null)
@@ -152,16 +173,6 @@ namespace CustomPickMePage
                 await Navigation.PopModalAsync();
             }
            
-        }
-
-        private async void OnCollcetionViewItemSelected(string text)
-        {
-            if (text != null && text != "")
-            {
-                MessagingCenter.Send<object, string>(this, "Hi", text);
-
-                await Navigation.PopModalAsync();
-            }
         }
 
         public class CustomViewCellPopupPage : ViewCell
@@ -178,5 +189,5 @@ namespace CustomPickMePage
                 View = layout;
             }
         }
-    }
-}
+        */
+    

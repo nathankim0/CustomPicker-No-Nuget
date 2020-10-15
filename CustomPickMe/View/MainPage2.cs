@@ -7,31 +7,36 @@ namespace CustomPickMePage
     {
         public MainPage2()
         {
-            AbsoluteLayout outerLayout = new AbsoluteLayout
+            StackLayout layout = new StackLayout();
+            Image image = new Image
             {
-                Padding = new Thickness(50)
             };
 
             Button popupButton = new Button
             {
-                FontSize = 30,
+                FontSize = 40,
                 Text="Category Select"
             };
             popupButton.Clicked += Popup_Button_Clicked;
             
-            MessagingCenter.Subscribe<object, string>(this, "Hi", (sender, arg) =>
+            MessagingCenter.Subscribe<object, string>(this, "text", (sender, arg) =>
             {
                 popupButton.Text = arg;
+            });
+            MessagingCenter.Subscribe<object, string>(this, "source", (sender, arg) =>
+            {
+                image.Source = arg;
             });
 
             StackLayout innerContentsStackLayout = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
-                Children = {popupButton}
+                Children = {image, popupButton},
+                HorizontalOptions=LayoutOptions.Center,
+                VerticalOptions=LayoutOptions.CenterAndExpand
             };
-            outerLayout.Children.Add(innerContentsStackLayout);
-
-            Content = outerLayout;
+            layout.Children.Add(innerContentsStackLayout);
+            Content = layout;
         }
 
         private async void Popup_Button_Clicked(object sender, EventArgs e)

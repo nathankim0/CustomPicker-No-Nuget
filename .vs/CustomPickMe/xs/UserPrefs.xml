@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
+﻿<Properties StartupConfiguration="{5FE890C5-DF29-4725-88C2-A82BF50A5A2E}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/View/PopupPage.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="CustomPickMe/Model/CustomPickerItems.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/View/PopupPage.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/View/PopupPage.cs" Line="110" Column="75" />
       <File FileName="CustomPickMe/View/MainPage2.cs" Line="22" Column="83" />
       <File FileName="CustomPickMe/View/MainPage.cs" Line="30" Column="70" />
       <File FileName="CustomPickMe/Model/CustomPickerData.cs" Line="18" Column="45" />
