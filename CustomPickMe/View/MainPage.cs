@@ -48,7 +48,7 @@ namespace CustomPickMeMain
             {
                 HasShadow = true,
                 IsVisible = false,
-                Scale = 0,
+                //Scale = 0,
                 BackgroundColor = Color.White,
                 Content = listStackLayout
             };
@@ -106,12 +106,15 @@ namespace CustomPickMeMain
 
         private void Popup_Button_Clicked(object sender, EventArgs e)
         {
-            if (!popupFrame.IsVisible)
+            if (popupFrame.IsVisible == false)
             {
                 innerContentsStackLayout.BackgroundColor = Color.FromHex("#6f6f6f");
-                popupFrame.IsVisible = !popupFrame.IsVisible;
-                popupFrame.AnchorX = 0.5;
-                popupFrame.AnchorY = 0.5;
+                popupFrame.IsVisible = true;
+
+
+                //popupFrame.AnchorX = 0.5;
+                //popupFrame.AnchorY = 0.5;
+                /*
 
                 Animation scaleAnimation = new Animation(
                     f => popupFrame.Scale = f,
@@ -127,6 +130,7 @@ namespace CustomPickMeMain
 
                 scaleAnimation.Commit(popupFrame, "popupScaleAnimation", 100);
                 fadeAnimation.Commit(popupFrame, "popupFadeAnimation", 100);
+                */
             }
             else
             {
@@ -159,16 +163,16 @@ namespace CustomPickMeMain
 
         private async void PopupFadeAway()
         {
-            if (popupFrame.IsVisible)
+            if (popupFrame.IsVisible==true)
             {
                 innerContentsStackLayout.BackgroundColor = Color.White;
-
+                /*
                 await Task.WhenAny<bool>
                 (
-                    popupFrame.FadeTo(0, 200, Easing.SinOut)
+                     popupFrame.FadeTo(0, 200, Easing.SinOut)
                 );
-
-                popupFrame.IsVisible = !popupFrame.IsVisible;
+                */
+                popupFrame.IsVisible = false;
             }
         }
     }
