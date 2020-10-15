@@ -115,13 +115,13 @@ namespace CustomPickMeMain
 
                 Animation scaleAnimation = new Animation(
                     f => popupFrame.Scale = f,
-                    0.5,
+                    0.95,
                     1,
                     Easing.SinInOut);
 
                 Animation fadeAnimation = new Animation(
                     f => popupFrame.Opacity = f,
-                    0.5,
+                    0.95,
                     1,
                     Easing.SinInOut);
 
@@ -159,13 +159,17 @@ namespace CustomPickMeMain
 
         private async void PopupFadeAway()
         {
-            innerContentsStackLayout.BackgroundColor = Color.White;
-            await Task.WhenAny<bool>
-            (
-                popupFrame.FadeTo(0, 200, Easing.SinInOut)
-            );
+            if (popupFrame.IsVisible)
+            {
+                innerContentsStackLayout.BackgroundColor = Color.White;
 
-            popupFrame.IsVisible = !popupFrame.IsVisible;
+                await Task.WhenAny<bool>
+                (
+                    popupFrame.FadeTo(0, 200, Easing.SinOut)
+                );
+
+                popupFrame.IsVisible = !popupFrame.IsVisible;
+            }
         }
     }
 
