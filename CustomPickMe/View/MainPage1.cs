@@ -5,13 +5,13 @@ using CustomPicker;
 
 namespace CustomPickMeMain
 {
-    public class MainPage : ContentPage
+    public class MainPage1 : ContentPage
     {
         private Frame popupFrame;
         private AbsoluteLayout outerLayout;
         private StackLayout innerContentsStackLayout;
 
-        public MainPage()
+        public MainPage1()
         {
             outerLayout = new AbsoluteLayout();
 
@@ -55,6 +55,7 @@ namespace CustomPickMeMain
 
             AbsoluteLayout.SetLayoutFlags(popupFrame, AbsoluteLayoutFlags.PositionProportional);
 
+
             if (CustomPickerViewModel.CustomPickerItems.Count <= 8)
             {
                 AbsoluteLayout.SetLayoutBounds(popupFrame,
@@ -82,6 +83,7 @@ namespace CustomPickMeMain
                 Children = {popupButton }
             };
 
+            /*
             Grid textGrid = new Grid();
             for(int i = 0; i < 10; i++)
             {
@@ -97,6 +99,7 @@ namespace CustomPickMeMain
                 }
             }
             innerContentsStackLayout.Children.Add(textGrid);
+            */
 
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) =>

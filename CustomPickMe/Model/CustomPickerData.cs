@@ -15,13 +15,20 @@ namespace CustomPicker
                 new CustomPickerItems("Relationship", Color.Green,"maps"),
                 new CustomPickerItems("Learning", Color.Blue,"shortcuts"),
                 new CustomPickerItems("Enjoyment", Color.DarkBlue,"facetime"),
-                new CustomPickerItems("Wealth", Color.Purple,"mac"),
+                new CustomPickerItems("Wealth", Color.Gold,"apple"),
+                new CustomPickerItems("긴글씨\n가나다라마바사아자차카타파하ABCDEFGHIJKLMNOPQRSTUVWXYZ", Color.Tomato,"facetime"),
+                new CustomPickerItems("Wealth", Color.Tan,"mac"),
+                new CustomPickerItems("Wealth", Color.SlateGray,"maps"),
+                new CustomPickerItems("Wealth", Color.MediumVioletRed,"shortcuts"),
+                new CustomPickerItems("Wealth", Color.LightBlue,"facetime")
+
             };
+            /*
             for (int i = 1; i <= 5; i++)
             {
                 customPickerItems.Add(new CustomPickerItems("ADD"+i.ToString(), Color.Black, "apple"));
             }
-
+            */
             return customPickerItems;
         }
     }

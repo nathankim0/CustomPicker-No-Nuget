@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
@@ -60,6 +61,6 @@ namespace CustomPicker
 				handler(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
+    }
 }
 

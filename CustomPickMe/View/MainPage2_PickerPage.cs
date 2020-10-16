@@ -3,13 +3,25 @@ using Xamarin.Forms;
 using CustomPicker;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using System.Collections.Generic;
+using System.Linq;
+
+/// <summary>
+/// 
+/// 20201016_Nathan
+/// PickerPage
+/// MainPage2 에서 넘어옴.
+/// *iOS, Andorid 모양이 다름.
+/// 
+/// </summary>
+///
 
 namespace CustomPickMePage
 {
-    public class MainPage2_PopupPage : ContentPage
+    public class MainPage2_PickerPage : ContentPage
     {
         /* MainPage2_PopupPage 시작 */
-        public MainPage2_PopupPage()
+        public MainPage2_PickerPage()
         {
             // ios modal 스타일 설정
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.Automatic);
@@ -81,7 +93,9 @@ namespace CustomPickMePage
             /* collectionView 시작 */
             var collectionView = new CollectionView   // Picker가 될 Collection View
             {
-            ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
+                EmptyView="없네요 ㅎ", //데이터 없을때 띄우는거
+                Margin = new Thickness(0, 0, 0, 20),
+                ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
                 VerticalOptions = LayoutOptions.FillAndExpand, // 아래 빈공간 없앰
 
                 /* ItemTemplate 시작 */
@@ -95,7 +109,11 @@ namespace CustomPickMePage
                         {
                             new RowDefinition
                             {
-                                Height=new GridLength(50)
+                                Height=GridLength.Auto
+                            },
+                            new RowDefinition
+                            {
+                                Height=new GridLength(25)
                             }
                         },
                         ColumnDefinitions =
@@ -111,26 +129,47 @@ namespace CustomPickMePage
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
 
+                    Label imageLabel = new Label()
+                    {
+                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                        TextColor = Color.Gray,
+                        BackgroundColor = Color.Black
+                    };
+
+                    Grid.SetRow(imageLabel, 1);
+                    imageLabel.SetBinding(Label.TextProperty, "imagesource");
+                    itemGrid.Children.Add(imageLabel);
+
                     // 목록 이름
                     Label nameLabel = new Label()
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        VerticalOptions = LayoutOptions.CenterAndExpand
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        VerticalTextAlignment=TextAlignment.Center,
+                        TextColor = Color.White,
+                        BackgroundColor=Color.SteelBlue
                     };
+
                     // 목록 이름과 색상을 바인딩
                     nameLabel.SetBinding(Label.TextProperty, "name");
-                    nameLabel.SetBinding(Label.TextColorProperty, "color");
-                    itemGrid.Children.Add(nameLabel, 1, 0); // Grid (1,0)부분에 목록 라벨 추가
+                    //nameLabel.SetBinding(Label.TextColorProperty, "color");
+                    Grid.SetColumn(nameLabel, 1);
+                    Grid.SetRowSpan(nameLabel, 2);
+                    itemGrid.Children.Add(nameLabel);
 
+                    itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");
+
+                    /*
                     // 목록간 구분선 정의
                     var separator = new BoxView
                     {
                         HeightRequest = 1,
-                        BackgroundColor = Color.Black,
+                        BackgroundColor = Color.White,
                         VerticalOptions = LayoutOptions.End
                     };
-                    itemGrid.Children.Add(separator);
+                    //itemGrid.Children.Add(separator);
                     Grid.SetColumnSpan(separator, 3); // ColumnSpan을 통해 일자로 쭉
+                    */
 
                     // 목록 클릭 이벤트 설정 (TapGestureRecognizer)
                     var tapGestureRecognizer = new TapGestureRecognizer();
@@ -146,7 +185,26 @@ namespace CustomPickMePage
             };
             /* collectionView 끝 */
 
-            modalLayout.Children.Add(collectionView); // 하단 목록 추가
+            // 목록 검색창
+            var searchBar = new Xamarin.Forms.SearchBar
+            {
+                Placeholder = "Search items...",
+                PlaceholderColor = Color.Silver,
+                TextColor = Color.Black,
+                //HorizontalTextAlignment = TextAlignment.Center,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Xamarin.Forms.SearchBar)),
+                // FontAttributes = FontAttributes.Italic
+            };
+
+            // 검색창 텍스트 입력시 이벤트
+            searchBar.TextChanged += (sender, e) =>
+            {
+                Xamarin.Forms.SearchBar searchBar2 = (Xamarin.Forms.SearchBar)sender;
+                collectionView.ItemsSource = GetSearchResults(searchBar2.Text);
+            };
+
+            modalLayout.Children.Add(searchBar); // 피커 목록 검색창
+            modalLayout.Children.Add(collectionView); // 피커 목록
 
             Content = modalLayout;
         }
@@ -170,6 +228,13 @@ namespace CustomPickMePage
 
                 await Navigation.PopModalAsync();
             }
+        }
+
+        // 목록 검색 함수
+        public static List<CustomPickerItems> GetSearchResults(string queryString)
+        {
+            var normalizedQuery = queryString?.ToLower() ?? "";
+            return CustomPickerViewModel.CustomPickerItems.Where(f => f.name.ToLowerInvariant().Contains(normalizedQuery)).ToList();
         }
     }
 }

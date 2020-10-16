@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/HomePage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/App.xaml.cs">
     <Files>
-      <File FileName="CustomPickMe/View/MainPage.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/View/PopupPage.cs" Line="3" Column="12" />
-      <File FileName="CustomPickMe/View/MainPage2.cs" Line="15" Column="44" />
-      <File FileName="CustomPickMe/HomePage.cs" Line="35" Column="30" />
+      <File FileName="CustomPickMe/View/MainPage.cs" Line="88" Column="23" />
+      <File FileName="CustomPickMe/View/PopupPage.cs" Line="189" Column="6" />
+      <File FileName="CustomPickMe/View/MainPage2.cs" Line="23" Column="35" />
+      <File FileName="CustomPickMe/HomePage.cs" Line="37" Column="33" />
       <File FileName="CustomPickMe/Model/MainPageItem.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/Model/CustomPickerItems.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/Model/CustomPickerData.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/ViewModel/CustomPickerViewModel.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/App.xaml.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/App.xaml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,10 +19,10 @@
           <Node name="CustomPickMe" expanded="True">
             <Node name="CustomPickMe" expanded="True">
               <Node name="Model" expanded="True" />
-              <Node name="View" expanded="True" />
-              <Node name="ViewModel" expanded="True" />
+              <Node name="View" expanded="True">
+                <Node name="MainPage2.cs" selected="True" />
+              </Node>
               <Node name="App.xaml" expanded="True" />
-              <Node name="HomePage.cs" selected="True" />
             </Node>
           </Node>
         </State>
