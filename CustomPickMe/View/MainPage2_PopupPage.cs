@@ -6,14 +6,15 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace CustomPickMePage
 {
-    public class PopupPage : ContentPage
+    public class MainPage2_PopupPage : ContentPage
     {
-        public PopupPage()
+        /* MainPage2_PopupPage 시작 */
+        public MainPage2_PopupPage()
         {
+            // ios modal 스타일 설정
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.Automatic);
 
-            Title = "Category Select";
-
+            // 상단 왼쪽 취소 버튼
             var cancelButton = new Button
             {
                 Text = "Cancel",
@@ -25,6 +26,7 @@ namespace CustomPickMePage
             };
             cancelButton.Clicked += OnCancel;
 
+            // 상단 가운데 타이틀
             var titleLabel = new Label
             {
                 Text = "Select Category",
@@ -36,6 +38,7 @@ namespace CustomPickMePage
                 FontSize = 16
             };
 
+            // 상단 타이틀바 Grid (3X1)
             var grid = new Grid
             {
                 ColumnDefinitions =
@@ -50,6 +53,7 @@ namespace CustomPickMePage
             grid.Children.Add(titleLabel, 1, 0);
 
 
+            // 타이틀바 + CollectionView(Picker)가 들어갈 stacklayout 정의
             var modalLayout = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
@@ -57,6 +61,7 @@ namespace CustomPickMePage
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Children =
                 {
+                    // 배경색상
                     new StackLayout
                     {
                         BackgroundColor = Color.FromHex("#EEEEEE"),
@@ -67,23 +72,25 @@ namespace CustomPickMePage
                         MinimumHeightRequest = 50,
                         Children =
                         {
-                            grid
+                            grid // 타이틀바 추가
                         }
                     }
                 }
             };
 
-            var collectionView = new CollectionView
+            /* collectionView 시작 */
+            var collectionView = new CollectionView   // Picker가 될 Collection View
             {
-                VerticalScrollBarVisibility = ScrollBarVisibility.Always,
-                ItemsSource = CustomPickerViewModel.CustomPickerItems,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+            ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
+                VerticalOptions = LayoutOptions.FillAndExpand, // 아래 빈공간 없앰
 
+                /* ItemTemplate 시작 */
                 ItemTemplate = new DataTemplate(() =>
                 {
+                    // 목록들이 들어갈 Grid
                     Grid itemGrid = new Grid
                     {
-                        Padding = 15,
+                        //Padding = 15,
                         RowDefinitions =
                         {
                             new RowDefinition
@@ -99,20 +106,23 @@ namespace CustomPickMePage
                         }
                     };
 
+                    // 목록 아이콘
                     Image image = new Image();
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
 
+                    // 목록 이름
                     Label nameLabel = new Label()
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand
-
                     };
+                    // 목록 이름과 색상을 바인딩
                     nameLabel.SetBinding(Label.TextProperty, "name");
                     nameLabel.SetBinding(Label.TextColorProperty, "color");
-                    itemGrid.Children.Add(nameLabel, 1, 0);
+                    itemGrid.Children.Add(nameLabel, 1, 0); // Grid (1,0)부분에 목록 라벨 추가
 
+                    // 목록간 구분선 정의
                     var separator = new BoxView
                     {
                         HeightRequest = 1,
@@ -120,37 +130,43 @@ namespace CustomPickMePage
                         VerticalOptions = LayoutOptions.End
                     };
                     itemGrid.Children.Add(separator);
-                    Grid.SetColumnSpan(separator, 3);
-                
+                    Grid.SetColumnSpan(separator, 3); // ColumnSpan을 통해 일자로 쭉
+
+                    // 목록 클릭 이벤트 설정 (TapGestureRecognizer)
                     var tapGestureRecognizer = new TapGestureRecognizer();
                     tapGestureRecognizer.Tapped += (s, e) =>
                     {
-                        OnCollcetionViewItemSelected(nameLabel.Text, (FileImageSource)image.Source);
+                        OnCollcetionViewItemSelected(nameLabel.Text, (FileImageSource)image.Source); // 목록 이름과 아이콘
                     };
-                    itemGrid.GestureRecognizers.Add(tapGestureRecognizer);
+                    itemGrid.GestureRecognizers.Add(tapGestureRecognizer); // Grid에 만든 탭제스처 추가
 
                     return itemGrid;
                 })
-
+                /* ItemTemplate 끝 */
             };
+            /* collectionView 끝 */
 
-            modalLayout.Children.Add(collectionView);
+            modalLayout.Children.Add(collectionView); // 하단 목록 추가
 
             Content = modalLayout;
         }
+        /* MainPage2_PopupPage 끝 */
 
+
+        // Picker 취소 버튼 함수
         private async void OnCancel(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
 
-
+        // 목록 선택 함수
         private async void OnCollcetionViewItemSelected(string text, string source)
         {
             if (text != null && text != "")
             {
-                MessagingCenter.Send<object, string>(this, "text", text);
-                MessagingCenter.Send<object, string>(this, "source", source);
+                // Messaging Center를 통해 Publish a Message.
+                MessagingCenter.Send(this, "text", text); // 목록 이름
+                MessagingCenter.Send(this, "source", source); // 목록 아이콘
 
                 await Navigation.PopModalAsync();
             }

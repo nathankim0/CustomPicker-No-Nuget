@@ -11,14 +11,14 @@ namespace CustomPickMe.View
         {
             Button PopupPicker = new Button
             {
-                Text = "Popup Picker",
+                Text = "MainPage1",
                 FontSize = 30
             };
             PopupPicker.Clicked += PopupPickerClick;
 
             Button PagePicker = new Button
             {
-                Text = "Page Picker",
+                Text = "MainPage2",
                 FontSize = 30
             };
             PagePicker.Clicked += PagePickerClick;
@@ -36,7 +36,7 @@ namespace CustomPickMe.View
         }
         private async void PopupPickerClick(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage1());
         }
 
         private async void PagePickerClick(object sender, EventArgs e)
