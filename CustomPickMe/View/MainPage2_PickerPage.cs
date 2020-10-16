@@ -94,30 +94,31 @@ namespace CustomPickMePage
             var collectionView = new CollectionView   // Picker가 될 Collection View
             {
                 EmptyView="없네요 ㅎ", //데이터 없을때 띄우는거
-                Margin = new Thickness(0, 0, 0, 20),
+                Margin = new Thickness(0, 0, 0, 20), // 아이폰 네비게이션바 안겹치게 
                 ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
                 VerticalOptions = LayoutOptions.FillAndExpand, // 아래 빈공간 없앰
 
                 /* ItemTemplate 시작 */
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    // 목록들이 들어갈 Grid
+                    // 목록들이 들어갈 Grid (한 목록당 3행 2열)
                     Grid itemGrid = new Grid
                     {
                         //Padding = 15,
                         RowDefinitions =
                         {
-                            new RowDefinition
+                            new RowDefinition // 첫 번째 줄
                             {
                                 Height=GridLength.Auto
                             },
-                            new RowDefinition
+                            new RowDefinition // 두 번째 줄
                             {
                                 Height=new GridLength(25)
                             }
                         },
                         ColumnDefinitions =
                         {
+                            // 3행
                             new ColumnDefinition(),
                             new ColumnDefinition(),
                             new ColumnDefinition()
@@ -129,14 +130,14 @@ namespace CustomPickMePage
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
 
+                    // 아이콘 설명
                     Label imageLabel = new Label()
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         TextColor = Color.Gray,
                         BackgroundColor = Color.Black
                     };
-
-                    Grid.SetRow(imageLabel, 1);
+                    Grid.SetRow(imageLabel, 1); // 1열, 아이콘 아래 
                     imageLabel.SetBinding(Label.TextProperty, "imagesource");
                     itemGrid.Children.Add(imageLabel);
 
@@ -153,24 +154,12 @@ namespace CustomPickMePage
 
                     // 목록 이름과 색상을 바인딩
                     nameLabel.SetBinding(Label.TextProperty, "name");
-                    //nameLabel.SetBinding(Label.TextColorProperty, "color");
-                    Grid.SetColumn(nameLabel, 1);
-                    Grid.SetRowSpan(nameLabel, 2);
+                    //nameLabel.SetBinding(Label.TextColorProperty, "color"); // 목록 이름 색상 설정
+                    Grid.SetColumn(nameLabel, 1);  // 0열, 1행에 위치
+                    Grid.SetRowSpan(nameLabel, 2); // 2열 차지(중앙에 위치 위해서)
                     itemGrid.Children.Add(nameLabel);
 
                     itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");
-
-                    /*
-                    // 목록간 구분선 정의
-                    var separator = new BoxView
-                    {
-                        HeightRequest = 1,
-                        BackgroundColor = Color.White,
-                        VerticalOptions = LayoutOptions.End
-                    };
-                    //itemGrid.Children.Add(separator);
-                    Grid.SetColumnSpan(separator, 3); // ColumnSpan을 통해 일자로 쭉
-                    */
 
                     // 목록 클릭 이벤트 설정 (TapGestureRecognizer)
                     var tapGestureRecognizer = new TapGestureRecognizer();
@@ -233,53 +222,73 @@ namespace CustomPickMePage
         }
 
         // 목록 검색 함수
-        public static List<CustomPickerItems> GetSearchResults(string queryString)
+        private static List<CustomPickerItems> GetSearchResults(string queryString)
         {
-            var normalizedQuery = queryString?.ToLower() ?? "";
+            var normalizedQuery = queryString?.ToLower() ?? ""; // 앞에 값이 null이면 뒤에 있는 "" 대입
             return CustomPickerViewModel.CustomPickerItems.Where(f => f.name.ToLowerInvariant().Contains(normalizedQuery)).ToList();
         }
     }
 }
 
 
+/*******************/
+/*                 */
+/*                 */
+/* 이하 쓰레기통 입니다 */
+/*                 */
+/*                 */
+/*******************/
 
-        /*
-        var listView = new Xamarin.Forms.ListView
-        {
-            Footer = "",
-            RowHeight = 50,
-            ItemTemplate = new DataTemplate(typeof(CustomViewCellPopupPage)),
-            ItemsSource = CustomPickerViewModel.CustomPickerItems,
-            HeightRequest = (CustomPickerViewModel.CustomPickerItems.Count) * 50
-        };
-        listView.ItemSelected += OnListViewItemSelected;
-        
-        //modalLayout.Children.Add(listView);
-        
-        private async void OnListViewItemSelected(object sender, SelectionChangedEventArgs args)
-        {
-            if (args.CurrentSelection != null)
-            {
-                MessagingCenter.Send<object, string>(this, "Hi", ((CustomPickerItems) args.CurrentSelection).name);
 
-                await Navigation.PopModalAsync();
-            }
-           
-        }
+/*
+// 목록간 구분선 정의
+var separator = new BoxView
+{
+    HeightRequest = 1,
+    BackgroundColor = Color.White,
+    VerticalOptions = LayoutOptions.End
+};
+//itemGrid.Children.Add(separator);
+Grid.SetColumnSpan(separator, 3); // ColumnSpan을 통해 일자로 쭉
+*/
 
-        public class CustomViewCellPopupPage : ViewCell
-        {
-            public CustomViewCellPopupPage()
-            {
-                StackLayout layout = new StackLayout() {Padding = new Thickness(2, 15)};
-                layout.Orientation = StackOrientation.Horizontal;
-                Label nameLabel = new Label() {HorizontalOptions = LayoutOptions.CenterAndExpand};
-                nameLabel.SetBinding(Label.TextProperty, "name");
-                nameLabel.SetBinding(Label.TextColorProperty, "color");
-                layout.Children.Add(nameLabel);
+/*
+var listView = new Xamarin.Forms.ListView
+{
+    Footer = "",
+    RowHeight = 50,
+    ItemTemplate = new DataTemplate(typeof(CustomViewCellPopupPage)),
+    ItemsSource = CustomPickerViewModel.CustomPickerItems,
+    HeightRequest = (CustomPickerViewModel.CustomPickerItems.Count) * 50
+};
+listView.ItemSelected += OnListViewItemSelected;
 
-                View = layout;
-            }
-        }
-        */
-    
+//modalLayout.Children.Add(listView);
+
+private async void OnListViewItemSelected(object sender, SelectionChangedEventArgs args)
+{
+    if (args.CurrentSelection != null)
+    {
+        MessagingCenter.Send<object, string>(this, "Hi", ((CustomPickerItems) args.CurrentSelection).name);
+
+        await Navigation.PopModalAsync();
+    }
+
+}
+
+public class CustomViewCellPopupPage : ViewCell
+{
+    public CustomViewCellPopupPage()
+    {
+        StackLayout layout = new StackLayout() {Padding = new Thickness(2, 15)};
+        layout.Orientation = StackOrientation.Horizontal;
+        Label nameLabel = new Label() {HorizontalOptions = LayoutOptions.CenterAndExpand};
+        nameLabel.SetBinding(Label.TextProperty, "name");
+        nameLabel.SetBinding(Label.TextColorProperty, "color");
+        layout.Children.Add(nameLabel);
+
+        View = layout;
+    }
+}
+*/
+
