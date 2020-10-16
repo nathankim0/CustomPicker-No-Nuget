@@ -113,7 +113,7 @@ namespace CustomPickMePage
                             },
                             new RowDefinition // 두 번째 줄
                             {
-                                Height=new GridLength(25)
+                                Height=GridLength.Auto
                             }
                         },
                         ColumnDefinitions =
@@ -137,6 +137,7 @@ namespace CustomPickMePage
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
 
+                    /*
                     // 아이콘 설명 라벨 배경
                     BoxView labelBox = new BoxView
                     {
@@ -146,6 +147,7 @@ namespace CustomPickMePage
                     };
                     Grid.SetRow(labelBox, 1); // 1열, 아이콘 아래 
                     itemGrid.Children.Add(labelBox);
+                    */
 
                     // 아이콘 설명 라벨
                     Label imageLabel = new Label()
@@ -165,7 +167,7 @@ namespace CustomPickMePage
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         VerticalTextAlignment=TextAlignment.Center,
-                        TextColor = Color.White,
+                        TextColor = Color.Black,
                        //BackgroundColor=Color.SteelBlue,
                         FontSize = Device.GetNamedSize(NamedSize.Body, typeof(Label))
                     };
@@ -177,17 +179,28 @@ namespace CustomPickMePage
                     Grid.SetRowSpan(nameLabel, 2); // 2열 차지(중앙에 위치 위해서)
                     itemGrid.Children.Add(nameLabel);
 
-                    itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");
+                   // itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");
+
+                    
+
+                    Frame gridFrame = new Frame
+                    {
+                        BorderColor = Color.FromHex("#EEEEEE"),
+                        HasShadow=false,
+                        Content=itemGrid,
+                        CornerRadius=0
+                    };
 
                     // 목록 클릭 이벤트 설정 (TapGestureRecognizer)
                     var tapGestureRecognizer = new TapGestureRecognizer();
                     tapGestureRecognizer.Tapped += (s, e) =>
                     {
+                        //gridFrame.BackgroundColor = Color.Orange;
                         OnCollcetionViewItemSelected(nameLabel.Text, (FileImageSource)image.Source); // 목록 이름과 아이콘
                     };
-                    itemGrid.GestureRecognizers.Add(tapGestureRecognizer); // Grid에 만든 탭제스처 추가
+                    gridFrame.GestureRecognizers.Add(tapGestureRecognizer); // Grid에 만든 탭제스처 추가
 
-                    return itemGrid;
+                    return gridFrame;
                 })
                 /* ItemTemplate 끝 */
             };
@@ -196,6 +209,7 @@ namespace CustomPickMePage
             // 목록 검색창
             var searchBar = new Xamarin.Forms.SearchBar
             {
+                Margin=0,
                 Placeholder = "Search items...",
                 PlaceholderColor = Color.Silver,
                 TextColor = Color.Black,

@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/View/MainPage2_PickerPage.cs">
     <Files>
-      <File FileName="CustomPickMe/View/MainPage2_PickerPage.cs" Line="161" Column="23" />
+      <File FileName="CustomPickMe/View/MainPage2_PickerPage.cs" Line="209" Column="56" />
       <File FileName="CustomPickMe/Model/CustomPickerItems.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/View/MainPage2.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/Model/CustomPickerData.cs" Line="54" Column="69" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,8 +25,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
-  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.00008030-0001619426E2802E" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.170B03C7-E494-4C59-8DA8-2B3227EB3558" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
