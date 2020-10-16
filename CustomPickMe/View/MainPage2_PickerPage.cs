@@ -126,19 +126,37 @@ namespace CustomPickMePage
                     };
 
                     // 목록 아이콘
-                    Image image = new Image();
+                    Image image = new Image
+                    {
+                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        Aspect=Aspect.AspectFit,
+                        HeightRequest=52,
+                        WidthRequest=52
+                    };
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
 
-                    // 아이콘 설명
+                    // 아이콘 설명 라벨 배경
+                    BoxView labelBox = new BoxView
+                    {
+                        BackgroundColor = Color.White,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand,
+                    };
+                    Grid.SetRow(labelBox, 1); // 1열, 아이콘 아래 
+                    itemGrid.Children.Add(labelBox);
+
+                    // 아이콘 설명 라벨
                     Label imageLabel = new Label()
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        TextColor = Color.Gray,
-                        BackgroundColor = Color.Black
+                        VerticalOptions = LayoutOptions.Start,
+                        TextColor = Color.Black,
+                        FontSize = 14
                     };
-                    Grid.SetRow(imageLabel, 1); // 1열, 아이콘 아래 
                     imageLabel.SetBinding(Label.TextProperty, "imagesource");
+                    Grid.SetRow(imageLabel, 1); // 1열, 아이콘 아래 
                     itemGrid.Children.Add(imageLabel);
 
                     // 목록 이름
