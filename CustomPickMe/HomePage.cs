@@ -22,7 +22,8 @@ namespace CustomPickMe.View
             Button PagePicker = new Button
             {
                 Text = "MainPage2",
-                FontSize = 30
+                FontSize = 30,
+                Margin=30
             };
             PagePicker.Clicked += async (sender, e) =>
             {
@@ -34,8 +35,17 @@ namespace CustomPickMe.View
                 Padding = 40,
                 Children =
                 {
-                    PopupPicker,
-                    PagePicker
+                    new StackLayout
+                    {
+                        VerticalOptions=LayoutOptions.CenterAndExpand,
+                        HorizontalOptions=LayoutOptions.CenterAndExpand,
+                        Children =
+                        {
+                            PopupPicker,
+                            PagePicker
+                        }
+                    }
+                    
                 }
             };
         }

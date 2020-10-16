@@ -147,7 +147,8 @@ namespace CustomPickMePage
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         VerticalTextAlignment=TextAlignment.Center,
                         TextColor = Color.White,
-                        BackgroundColor=Color.SteelBlue
+                       //BackgroundColor=Color.SteelBlue,
+                        FontSize = Device.GetNamedSize(NamedSize.Body, typeof(Label))
                     };
 
                     // 목록 이름과 색상을 바인딩
@@ -199,6 +200,7 @@ namespace CustomPickMePage
             // 검색창 텍스트 입력시 이벤트
             searchBar.TextChanged += (sender, e) =>
             {
+                collectionView.ScrollTo(0); //검색내용 맨 위부터 보이게
                 Xamarin.Forms.SearchBar searchBar2 = (Xamarin.Forms.SearchBar)sender;
                 collectionView.ItemsSource = GetSearchResults(searchBar2.Text);
             };
