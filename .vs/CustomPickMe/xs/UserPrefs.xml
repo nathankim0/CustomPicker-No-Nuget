@@ -2,10 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/View/MainPage2_PickerPage.cs">
     <Files>
-      <File FileName="CustomPickMe/View/MainPage2_PickerPage.cs" Line="209" Column="56" />
-      <File FileName="CustomPickMe/Model/CustomPickerItems.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/View/MainPage2.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/Model/CustomPickerData.cs" Line="54" Column="69" />
+      <File FileName="CustomPickMe/View/MainPage2_PickerPage.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,6 +15,10 @@
               </Node>
               <Node name="ViewModel" expanded="True" />
               <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="CustomPickMe.iOS" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="Resources" expanded="True" />
             </Node>
           </Node>
         </State>

@@ -18,17 +18,18 @@ namespace CustomPickMePage
                 await Navigation.PushModalAsync(new MainPage2_PickerPage());
 
             };
-
+            
             // Subscribe a Message (From MainPage2_PickerPage)
             MessagingCenter.Subscribe<MainPage2_PickerPage, string>(this, "text", (sender, arg) =>
             {
                 popupButton.Text = arg;
             });
+
             MessagingCenter.Subscribe<MainPage2_PickerPage, string>(this, "source", (sender, arg) =>
             {
                 image.Source = arg;
             });
-
+            
             Content = new StackLayout
             {
                 Children =
