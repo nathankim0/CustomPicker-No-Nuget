@@ -1,4 +1,5 @@
 using System;
+using CustomPickMe.ViewFolder;
 using CustomPickMeMain;
 using CustomPickMePage;
 using Xamarin.Forms;
@@ -11,7 +12,7 @@ namespace CustomPickMe.View
         {
             Button PopupPicker = new Button
             {
-                Text = "MainPage1",
+                Text = "PopupPicker",
                 FontSize = 30
             };
             PopupPicker.Clicked += async (sender, e) =>
@@ -21,7 +22,7 @@ namespace CustomPickMe.View
 
             Button PagePicker = new Button
             {
-                Text = "MainPage2",
+                Text = "PagePicker",
                 FontSize = 30,
                 Margin=30
             };
@@ -29,7 +30,36 @@ namespace CustomPickMe.View
             {
                 await Navigation.PushAsync(new MainPage2());
             };
-
+            Button MyCustomLayout = new Button
+            {
+                Text = "MyPage",
+                FontSize = 30,
+                Margin=30
+            };
+            MyCustomLayout.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new MainPage3());
+            };
+            Button bottomDrawer = new Button
+            {
+                Text = "bottomDrawer",
+                FontSize = 30,
+                Margin = 30
+            };
+            bottomDrawer.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new BottomDrawer());
+            };
+            Button MybottomSheet = new Button
+            {
+                Text = "MybottomSheet",
+                FontSize = 30,
+                Margin = 30
+            };
+            MybottomSheet.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new MainPage4());
+            };
             Content = new StackLayout
             {
                 Padding = 40,
@@ -42,7 +72,10 @@ namespace CustomPickMe.View
                         Children =
                         {
                             PopupPicker,
-                            PagePicker
+                            PagePicker,
+                            MyCustomLayout,
+                            bottomDrawer,
+                            MybottomSheet
                         }
                     }
                     

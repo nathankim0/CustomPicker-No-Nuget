@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.0",
+          "Xamarin.Forms": "4.5.0.356"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -140,8 +153,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.1141"
+          "Xamarin.Forms": "4.8.0.1560"
         },
         "compile": {
           "bin/placeholder/CustomPickMe.dll": {}
@@ -152,6 +166,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.0",
+          "Xamarin.Forms": "4.5.0.356"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -290,8 +317,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.1141"
+          "Xamarin.Forms": "4.8.0.1560"
         },
         "compile": {
           "bin/placeholder/CustomPickMe.dll": {}
@@ -302,6 +330,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.0",
+          "Xamarin.Forms": "4.5.0.356"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -440,8 +481,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.1141"
+          "Xamarin.Forms": "4.8.0.1560"
         },
         "compile": {
           "bin/placeholder/CustomPickMe.dll": {}
@@ -452,6 +494,19 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.0",
+          "Xamarin.Forms": "4.5.0.356"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -590,8 +645,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.6.0.1141"
+          "Xamarin.Forms": "4.8.0.1560"
         },
         "compile": {
           "bin/placeholder/CustomPickMe.dll": {}
@@ -603,6 +659,19 @@
     }
   },
   "libraries": {
+    "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+      "sha512": "m/A/EwEeuICPuJb+IjF5apRNePAzyfIZE8CVlW4yISNqi37a6m++DY+HRteC2bDT+6QWWencNc3RT5dLHa438Q==",
+      "type": "package",
+      "path": "xam.plugin.simplebottomdrawer/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ic_launcher.png",
+        "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll",
+        "xam.plugin.simplebottomdrawer.1.0.5.nupkg.sha512",
+        "xam.plugin.simplebottomdrawer.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.3.2": {
       "sha512": "BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
       "type": "package",
@@ -991,7 +1060,7 @@
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/nathan-kim/.config/NuGet/NuGet.Config"
+        "/Users/nathan-kim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
@@ -1034,5 +1103,20 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.8.0.1560 to 4.6.0.1141. Reference the package directly from the project to select a different version. \n CustomPickMe.iOS -> CustomPickMe -> Xamarin.Forms (>= 4.8.0.1560) \n CustomPickMe.iOS -> Xamarin.Forms (>= 4.6.0.1141)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

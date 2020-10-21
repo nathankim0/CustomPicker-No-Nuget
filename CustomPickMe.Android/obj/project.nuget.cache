@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "McAgaBW3cfYabfR0XWugcS3pblUURLSwNGVSUkmsPpNVSbv/NigDYemZpFKCdZfrDBK7ViPR3d76Jhl4YoOuNg==",
+  "dgSpecHash": "9nDar6wXZjncVhgZNl82jlYSZUf1cIlSDXpA5II6U24KWDjIYVqd5Vl1idLc2SRim5GNssSvxX0qCbYdYRdDkw==",
   "success": true,
   "projectFilePath": "/Users/nathan-kim/Projects/CustomPickMe/CustomPickMe.Android/CustomPickMe.Android.csproj",
   "expectedPackageFiles": [
+    "/Users/nathan-kim/.nuget/packages/xam.plugin.simplebottomdrawer/1.0.5/xam.plugin.simplebottomdrawer.1.0.5.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.android.arch.core.common/1.1.1.3/xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.android.arch.core.runtime/1.1.1.3/xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.android.arch.lifecycle.common/1.1.1.3/xamarin.android.arch.lifecycle.common.1.1.1.3.nupkg.sha512",
@@ -44,5 +45,16 @@
     "/Users/nathan-kim/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.forms/4.6.0.1141/xamarin.forms.4.6.0.1141.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.8.0.1560 to 4.6.0.1141. Reference the package directly from the project to select a different version. \n CustomPickMe.Android -> CustomPickMe -> Xamarin.Forms (>= 4.8.0.1560) \n CustomPickMe.Android -> Xamarin.Forms (>= 4.6.0.1141)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    }
+  ]
 }

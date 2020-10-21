@@ -1,24 +1,26 @@
 ﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/View/MainPage2_PickerPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewFolder/MainPage4.cs">
     <Files>
-      <File FileName="CustomPickMe/View/MainPage2_PickerPage.cs" Line="1" Column="1" />
+      <File FileName="../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.iOS.Common.targets" Line="2084" Column="3" />
+      <File FileName="CustomPickMe/ViewFolder/BottomDrawer.xaml" Line="22" Column="89" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage4.cs" Line="18" Column="1" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage3.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage2_PickerPage.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CustomPickMe" expanded="True">
             <Node name="CustomPickMe" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Model" expanded="True" />
-              <Node name="View" expanded="True">
-                <Node name="MainPage2_PickerPage.cs" selected="True" />
+              <Node name="ViewFolder" expanded="True">
+                <Node name="MainPage4.cs" selected="True" />
               </Node>
               <Node name="ViewModel" expanded="True" />
-              <Node name="App.xaml" expanded="True" />
-            </Node>
-            <Node name="CustomPickMe.iOS" expanded="True">
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True" />
             </Node>
           </Node>
         </State>

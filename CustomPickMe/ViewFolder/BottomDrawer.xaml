@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Xam.Plugin.SimpleBottomDrawer;assembly=Xam.Plugin.SimpleBottomDrawer"
+             
+x:Class="CustomPickMe.ViewFolder.BottomDrawer">
+    <ContentPage.Content>
+
+         <RelativeLayout>
+    <controls:BottomDrawer
+                Padding="0"
+                BackgroundColor="White"
+                ExpandedPercentage="{Binding ExpandedPercentage}"
+                IsExpanded="{Binding IsExpanded}"
+                IsVisible="{Binding IsVisible}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1,
+                                                                       Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1,
+                                                                      Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=1,
+                                                                  Constant=-65}">
+																  
+					 <StackLayout Spacing="6">
+                    <BoxView
+                        Margin="20,16,20,5"
+                        BackgroundColor="#D1D6DB"
+                        CornerRadius="2"
+                        HeightRequest="5"
+                        HorizontalOptions="Center"
+                        WidthRequest="80" />
+
+                    <Label
+                        Padding="20,0,20,0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="This is an example" />
+
+                    <ScrollView>
+                        <StackLayout Spacing="0">
+                            <Label
+                                Padding="20"
+                                FontSize="Subtitle"
+                                HorizontalOptions="Start"
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at ex justo. Maecenas in convallis eros. Nunc semper vitae ex ut condimentum. Vivamus euismod magna ac enim interdum, ac lacinia nisi luctus. Integer consectetur metus nibh, tempor gravida enim placerat eget. Proin orci ex, fringilla sit amet eros bibendum, tincidunt feugiat mi. Proin sollicitudin imperdiet augue, quis porttitor turpis aliquet ut. Pentum dignissim. " />
+                            <Label
+                                Padding="20"
+                                FontSize="Subtitle"
+                                HorizontalOptions="Start"
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at ex justo. Maecenas in convallis eros. Nunc semper vitae ex ut condimentum. Vivamus euismod magna ac enim interdum, ac lacinia nisi luctus. Integer consectetur metus nibh, tempor gravida enim placerat eget. Proin orci ex, fringilla sit amet eros bibendum, tincidunt feugiat mi. Proin sollicitudin imperdiet augue, quis porttitor turpis aliquet ut. Pellentesque lacinia, nisi nec dignissim eleifend, leo elit commodo nulla, et volutpat enim arcu at eros. Sed et saavida fermentum tellus.  Fusce in lacus id tellus condimentum dignissim. " />
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+					
+	</controls:BottomDrawer>
+
+    </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -26,6 +26,8 @@ namespace CustomPickMePage
             // ios modal 스타일 설정
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.Automatic);
 
+         
+
 
             // 상단 왼쪽 취소 버튼
             var cancelButton = new Button
