@@ -96,16 +96,16 @@ namespace CustomPickMePage
             /* collectionView 시작 */
             var collectionView = new CollectionView   // Picker가 될 Collection View
             {
-                EmptyView="없네요 ㅎ", //데이터 없을때 띄우는거
+                EmptyView="없네요 ㅎ", // 데이터 없을때
                 Margin = new Thickness(0, 0, 0, 20), // 아이폰 네비게이션바 안겹치게 
                 ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
                 VerticalOptions = LayoutOptions.FillAndExpand, // 아래 빈공간 없앰
-                ItemsLayout = new GridItemsLayout(2, ItemsLayoutOrientation.Vertical),
-               // {
-              //      VerticalItemSpacing = 20,
-               //     HorizontalItemSpacing = 30
-              //  },
-               // ItemSizingStrategy = ItemSizingStrategy.MeasureAllItems,
+            //  ItemsLayout = new GridItemsLayout(2, ItemsLayoutOrientation.Vertical), // 2줄로
+            //  {
+            //      VerticalItemSpacing = 20,
+            //      HorizontalItemSpacing = 30
+            //  },
+            //  ItemSizingStrategy = ItemSizingStrategy.MeasureAllItems,
 
                 /* ItemTemplate 시작 */
                 ItemTemplate = new DataTemplate(() =>
@@ -183,10 +183,10 @@ namespace CustomPickMePage
 
                     // 목록 이름과 색상을 바인딩
                     nameLabel.SetBinding(Label.TextProperty, "name");
-                    //nameLabel.SetBinding(Label.TextColorProperty, "color"); // 목록 이름 색상 설정
+                 // nameLabel.SetBinding(Label.TextColorProperty, "color"); // 목록 이름 색상 설정
                     Grid.SetColumn(nameLabel, 1);  // 0열, 1행에 위치
                     Grid.SetRowSpan(nameLabel, 2); // 2열 차지(중앙에 위치 위해서)
-                    Grid.SetColumnSpan(nameLabel, 2); // 2행 차지(중앙에 위치 위해서)
+                 // Grid.SetColumnSpan(nameLabel, 2); // 2행 차지(중앙에 위치 위해서)
                     itemGrid.Children.Add(nameLabel);
 
                    // itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");

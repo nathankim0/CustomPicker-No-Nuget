@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" x:Class="CustomPickMe.ViewFolder.MainPage">
+    
+    <RelativeLayout>
+        
+    <StackLayout Padding="10,20,0,0">
+        <Button Text="Category Select" FontSize="30" Clicked="Button_Clicked"/>
+    </StackLayout>
+
+          <Frame HasShadow="true"
+                 CornerRadius="20"
+                 Padding="1,4,1,0"
+                 IsVisible="{Binding IsVisible}"
+                 x:Name="bottomSheet" 
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height,Factor=.9,Constant=0}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+
+            <Frame.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+                </Frame.GestureRecognizers>
+
+              <StackLayout Spacing="5" x:Name="inFrameStackLayout">
+               <BoxView Margin="20" HeightRequest="8" CornerRadius="6" WidthRequest="70" BackgroundColor="Gray" HorizontalOptions="Center"/>
+               
+            </StackLayout>
+          </Frame>
+ </RelativeLayout>
+</ContentPage>

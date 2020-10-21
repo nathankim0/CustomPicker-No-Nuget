@@ -8,6 +8,7 @@ namespace CustomPickMeMain
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _selected = "Category";
+        private bool _isVisible = false;
 
         public string Selected
         {
@@ -17,7 +18,17 @@ namespace CustomPickMeMain
                 _selected = value;
                 OnPropertyChanged();
             }
-        } /*
+        }
+        public bool IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                _isVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        /*
 		public MainPageItems(string selected)
 		{
 			this._selected = selected;

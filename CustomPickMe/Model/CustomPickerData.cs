@@ -16,6 +16,7 @@ namespace CustomPicker
                 new CustomPickerItems("Learning", Color.Blue,"shortcuts"),
                 new CustomPickerItems("Enjoyment", Color.DarkBlue,"facetime"),
                 new CustomPickerItems("Wealth", Color.Gold,"apple"),
+                /*
                 //new CustomPickerItems("긴글씨가나다라마바사아자차카타파하ABCDEFGHIJKLMNOPQRSTUVWXYZ", Color.Tomato,"facetime"),
                 new CustomPickerItems("General", Color.Red, "apple"),
                 new CustomPickerItems("Health", Color.Orange,"facetime"),
@@ -52,6 +53,7 @@ namespace CustomPicker
                 new CustomPickerItems("Learning", Color.Blue,"shortcuts"),
                 new CustomPickerItems("Enjoyment", Color.DarkBlue,"facetime"),
                 new CustomPickerItems("Wealth", Color.Gold,"apple"),
+                */
 
             };
             /*

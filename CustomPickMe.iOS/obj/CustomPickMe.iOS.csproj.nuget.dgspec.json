@@ -15,7 +15,7 @@
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/nathan-kim/.nuget/NuGet/NuGet.Config"
+          "/Users/nathan-kim/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
@@ -69,7 +69,7 @@
         "outputPath": "/Users/nathan-kim/Projects/CustomPickMe/CustomPickMe/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nathan-kim/.nuget/NuGet/NuGet.Config"
+          "/Users/nathan-kim/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -120,7 +120,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
         }
       }
     }

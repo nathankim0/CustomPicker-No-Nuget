@@ -1,12 +1,23 @@
-﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
+﻿<Properties StartupConfiguration="{5FE890C5-DF29-4725-88C2-A82BF50A5A2E}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewFolder/MainPage4.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/mycollectionview.cs">
     <Files>
-      <File FileName="../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.iOS.Common.targets" Line="2084" Column="3" />
-      <File FileName="CustomPickMe/ViewFolder/BottomDrawer.xaml" Line="22" Column="89" />
-      <File FileName="CustomPickMe/ViewFolder/MainPage4.cs" Line="18" Column="1" />
+      <File FileName="CustomPickMe/HomePage.cs" Line="92" Column="37" />
+      <File FileName="CustomPickMe.iOS/Info.plist" />
+      <File FileName="CustomPickMe/Model/MainPageItem.cs" />
+      <File FileName="CustomPickMe/ViewFolder/BottomDrawer.xaml" Line="57" Column="646" />
+      <File FileName="CustomPickMe/ViewFolder/BottomDrawer.xaml.cs" Line="109" Column="22" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage2_PickerPage.cs" Line="105" Column="28" />
+      <File FileName="CustomPickMe/Model/CustomPickerItems.cs" />
+      <File FileName="CustomPickMe/Model/CustomPickerData.cs" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage2.cs" Line="1" Column="1" />
       <File FileName="CustomPickMe/ViewFolder/MainPage3.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/ViewFolder/MainPage2_PickerPage.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage.xaml" Line="11" Column="55" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage.xaml.cs" Line="163" Column="15" />
+      <File FileName="CustomPickMe/ViewFolder/MyLayout.cs" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage4.cs" Line="1" Column="1" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage1.cs" Line="61" Column="33" />
+      <File FileName="CustomPickMe/mycollectionview.cs" Line="7" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,10 +29,13 @@
               </Node>
               <Node name="Model" expanded="True" />
               <Node name="ViewFolder" expanded="True">
-                <Node name="MainPage4.cs" selected="True" />
+                <Node name="BottomDrawer.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True" />
               </Node>
               <Node name="ViewModel" expanded="True" />
+              <Node name="mycollectionview.cs" selected="True" />
             </Node>
+            <Node name="CustomPickMe.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -29,7 +43,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.170B03C7-E494-4C59-8DA8-2B3227EB3558" />
+  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A3CB610F-5C77-4025-B9CA-67ED19CCEDD3" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

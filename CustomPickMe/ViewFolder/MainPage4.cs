@@ -18,7 +18,7 @@ namespace CustomPickMe.ViewFolder
         private Grid _bottomSheetGrid;
         private StackLayout _backViewStackLayout;
         private CollectionView _collectionView;
-        
+
         public MainPage4()
         {
             _grid = new Grid
@@ -31,19 +31,18 @@ namespace CustomPickMe.ViewFolder
                     }
                 }
             };
-            _relativeLayout=new RelativeLayout();
-            Grid.SetRow(_relativeLayout,0);
-            
+            _relativeLayout = new RelativeLayout();
+            _categoryButton = new Button
+            {
+                Text = "Category select"
+            };
+
             _backViewStackLayout = new StackLayout
             {
                 Margin = new Thickness(10, 50, 10, 10),
-                Children = 
-                { 
-                    _categoryButton, 
-                    new Label
-                    {
-                        Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                    },
+                Children =
+                {
+                    _categoryButton,
                     new Label
                     {
                         Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -58,20 +57,14 @@ namespace CustomPickMe.ViewFolder
                     }
                 }
             };
-            
-             /* collectionView 시작 */
-             _collectionView = new CollectionView   // Picker가 될 Collection View
+
+            /* collectionView 시작 */
+            _collectionView = new CollectionView   // Picker가 될 Collection View
             {
-                EmptyView="없네요 ㅎ", //데이터 없을때 띄우는거
+                EmptyView = "없네요 ㅎ", //데이터 없을때 띄우는거
                 Margin = new Thickness(0, 0, 0, 20), // 아이폰 네비게이션바 안겹치게 
                 ItemsSource = CustomPickerViewModel.CustomPickerItems, // 목록 항목들
                 VerticalOptions = LayoutOptions.FillAndExpand, // 아래 빈공간 없앰
-                ItemsLayout = new GridItemsLayout(2, ItemsLayoutOrientation.Vertical),
-               // {
-              //      VerticalItemSpacing = 20,
-               //     HorizontalItemSpacing = 30
-              //  },
-               // ItemSizingStrategy = ItemSizingStrategy.MeasureAllItems,
 
                 /* ItemTemplate 시작 */
                 ItemTemplate = new DataTemplate(() =>
@@ -105,24 +98,12 @@ namespace CustomPickMe.ViewFolder
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        Aspect=Aspect.AspectFit,
-                        HeightRequest=52,
-                        WidthRequest=52
+                        Aspect = Aspect.AspectFit,
+                        HeightRequest = 52,
+                        WidthRequest = 52
                     };
                     image.SetBinding(Image.SourceProperty, "imagesource");
                     itemGrid.Children.Add(image, 0, 0);
-
-                    /*
-                    // 아이콘 설명 라벨 배경
-                    BoxView labelBox = new BoxView
-                    {
-                        BackgroundColor = Color.White,
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        VerticalOptions = LayoutOptions.FillAndExpand,
-                    };
-                    Grid.SetRow(labelBox, 1); // 1열, 아이콘 아래 
-                    itemGrid.Children.Add(labelBox);
-                    */
 
                     // 아이콘 설명 라벨
                     Label imageLabel = new Label()
@@ -141,37 +122,29 @@ namespace CustomPickMe.ViewFolder
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        VerticalTextAlignment=TextAlignment.Center,
-                        //TextColor = Color.Black,
-                       //BackgroundColor=Color.SteelBlue,
+                        VerticalTextAlignment = TextAlignment.Center,
                         FontSize = Device.GetNamedSize(NamedSize.Body, typeof(Label))
                     };
 
                     // 목록 이름과 색상을 바인딩
                     nameLabel.SetBinding(Label.TextProperty, "name");
-                    //nameLabel.SetBinding(Label.TextColorProperty, "color"); // 목록 이름 색상 설정
                     Grid.SetColumn(nameLabel, 1);  // 0열, 1행에 위치
                     Grid.SetRowSpan(nameLabel, 2); // 2열 차지(중앙에 위치 위해서)
                     Grid.SetColumnSpan(nameLabel, 2); // 2행 차지(중앙에 위치 위해서)
                     itemGrid.Children.Add(nameLabel);
 
-                   // itemGrid.SetBinding(Grid.BackgroundColorProperty, "color");
-
-                    
-
                     Frame gridFrame = new Frame
                     {
                         BorderColor = Color.FromHex("#EEEEEE"),
-                        HasShadow=false,
-                        Content=itemGrid,
-                        CornerRadius=0
+                        HasShadow = false,
+                        Content = itemGrid,
+                        CornerRadius = 0
                     };
 
                     // 목록 클릭 이벤트 설정 (TapGestureRecognizer)
                     var tapGestureRecognizer = new TapGestureRecognizer();
                     tapGestureRecognizer.Tapped += (s, e) =>
                     {
-                        //gridFrame.BackgroundColor = Color.Orange;
                         OnCollcetionViewItemSelected(nameLabel.Text, (FileImageSource)image.Source); // 목록 이름과 아이콘
                     };
                     gridFrame.GestureRecognizers.Add(tapGestureRecognizer); // Grid에 만든 탭제스처 추가
@@ -185,35 +158,26 @@ namespace CustomPickMe.ViewFolder
             // 목록 검색창
             var searchBar = new Xamarin.Forms.SearchBar
             {
-                Margin=0,
+                Margin = 0,
                 Placeholder = "Search items...",
                 PlaceholderColor = Color.Silver,
                 TextColor = Color.Black,
-                //HorizontalTextAlignment = TextAlignment.Center,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Xamarin.Forms.SearchBar)),
-                // FontAttributes = FontAttributes.Italic
             };
 
             // 검색창 텍스트 입력시 이벤트
             searchBar.TextChanged += (sender, e) =>
             {
                 _collectionView.ScrollTo(0); //검색내용 맨 위부터 보이게
-                //Xamarin.Forms.SearchBar searchBar2 = (Xamarin.Forms.SearchBar)sender;
                 _collectionView.ItemsSource = GetSearchResults(e.NewTextValue);
             };
             StackLayout listStackLayout = new StackLayout
             {
-                Children = {searchBar, _collectionView}
+                Children = { searchBar, _collectionView }
             };
-            
-            _relativeLayout.Children.Add(_backViewStackLayout,Constraint.Constant(0),Constraint.Constant(0));
-            
-            _bottomSheetGrid = new Grid();
-            
-            var drawGestureRecognizer = new PanGestureRecognizer();
-            drawGestureRecognizer.PanUpdated += PanGestureRecognizer_PanUpdated; 
-            _bottomSheetGrid.GestureRecognizers.Add(drawGestureRecognizer);
 
+
+           
             StackLayout _bottomSheetStackLayout = new StackLayout
             {
                 Spacing = 6,
@@ -231,27 +195,39 @@ namespace CustomPickMe.ViewFolder
                     listStackLayout
                 }
             };
+
+            _relativeLayout.Children.Add(_backViewStackLayout, Constraint.Constant(0));
+
+            _bottomSheetGrid = new Grid();
+            var drawGestureRecognizer = new PanGestureRecognizer();
+            drawGestureRecognizer.PanUpdated += PanGestureRecognizer_PanUpdated;
+            _bottomSheetGrid.GestureRecognizers.Add(drawGestureRecognizer);
+
+
             _bottomSheetGrid.Children.Add(_bottomSheetStackLayout);
             _relativeLayout.Children.Add(
-                _bottomSheetGrid, 
-                null,
-                Constraint.RelativeToParent((parent) =>
+                _bottomSheetGrid,
+                yConstraint: Constraint.RelativeToParent((parent) =>
             {
-                return Width*0.93;
+                return Width * 0.93;
             }),
-                Constraint.RelativeToParent((parent) =>
+               widthConstraint: Constraint.RelativeToParent((parent) =>
                 {
-                    return Width*1;
+                    return Width * 1;
                 }),
-            Constraint.RelativeToParent((parent) =>
+            heightConstraint: Constraint.RelativeToParent((parent) =>
             {
-                return Height*1;
+                return Height * 1;
             }));
+
+            //Grid.SetRow(_relativeLayout, 0);
+
             _grid.Children.Add(_relativeLayout);
 
-            Content = _grid;
 
+            Content = _grid;
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -279,6 +255,7 @@ namespace CustomPickMe.ViewFolder
         bool isTurnY;
         double valueY;
         double y;
+
         void PanGestureRecognizer_PanUpdated(System.Object sender, Xamarin.Forms.PanUpdatedEventArgs e)
         {
             // Handle the pan
@@ -451,7 +428,7 @@ namespace CustomPickMe.ViewFolder
         }
         
         // 목록 선택 함수
-        private async void OnCollcetionViewItemSelected(string text, string source)
+        private void OnCollcetionViewItemSelected(string text, string source)
         {
             if (text != null && text != "")
             {

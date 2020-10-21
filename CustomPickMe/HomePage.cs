@@ -1,4 +1,5 @@
 using System;
+using BottomSheet;
 using CustomPickMe.ViewFolder;
 using CustomPickMeMain;
 using CustomPickMePage;
@@ -56,9 +57,21 @@ namespace CustomPickMe.View
                 FontSize = 30,
                 Margin = 30
             };
+
             MybottomSheet.Clicked += async (sender, e) =>
             {
                 await Navigation.PushAsync(new MainPage4());
+            };
+            Button MainPage = new Button
+            {
+                Text = "MainPage",
+                FontSize = 30,
+                Margin = 30
+            };
+
+            MainPage.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new MainPage());
             };
             Content = new StackLayout
             {
@@ -75,7 +88,9 @@ namespace CustomPickMe.View
                             PagePicker,
                             MyCustomLayout,
                             bottomDrawer,
-                            MybottomSheet
+                            MybottomSheet,
+                            MainPage
+
                         }
                     }
                     

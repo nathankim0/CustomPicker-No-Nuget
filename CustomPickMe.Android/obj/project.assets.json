@@ -1970,7 +1970,7 @@
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/nathan-kim/.nuget/NuGet/NuGet.Config"
+        "/Users/nathan-kim/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
