@@ -40,16 +40,16 @@ namespace CustomPickMe.View
             {
                 await Navigation.PushAsync(new MainPage3());
             };
-            Button MainPage = new Button
+            Button MainPage4 = new Button
             {
                 Text = "Bottom Sheet",
                 FontSize = 30,
                 Margin = 30
             };
 
-            MainPage.Clicked += async (sender, e) =>
+            MainPage4.Clicked += async (sender, e) =>
             {
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushAsync(new MainPage4());
             };
             StackLayout stack = new StackLayout
             {
@@ -64,11 +64,10 @@ namespace CustomPickMe.View
                         {
                             PopupPicker,
                             PagePicker,
-                            MainPage
+                            MainPage4
 
                         }
                     }
-
                 }
             }; 
             ScrollView scroll = new ScrollView
