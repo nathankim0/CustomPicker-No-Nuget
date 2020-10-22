@@ -1,5 +1,4 @@
 using System;
-using BottomSheet;
 using CustomPickMe.ViewFolder;
 using CustomPickMeMain;
 using CustomPickMePage;
@@ -13,7 +12,7 @@ namespace CustomPickMe.View
         {
             Button PopupPicker = new Button
             {
-                Text = "PopupPicker",
+                Text = "Popup Picker",
                 FontSize = 30
             };
             PopupPicker.Clicked += async (sender, e) =>
@@ -23,7 +22,7 @@ namespace CustomPickMe.View
 
             Button PagePicker = new Button
             {
-                Text = "PagePicker",
+                Text = "Page Picker",
                 FontSize = 30,
                 Margin=30
             };
@@ -33,7 +32,7 @@ namespace CustomPickMe.View
             };
             Button MyCustomLayout = new Button
             {
-                Text = "MyPage",
+                Text = "CustomLayout Page",
                 FontSize = 30,
                 Margin=30
             };
@@ -41,30 +40,9 @@ namespace CustomPickMe.View
             {
                 await Navigation.PushAsync(new MainPage3());
             };
-            Button bottomDrawer = new Button
-            {
-                Text = "bottomDrawer",
-                FontSize = 30,
-                Margin = 30
-            };
-            bottomDrawer.Clicked += async (sender, e) =>
-            {
-                await Navigation.PushAsync(new BottomDrawer());
-            };
-            Button MybottomSheet = new Button
-            {
-                Text = "MybottomSheet",
-                FontSize = 30,
-                Margin = 30
-            };
-
-            MybottomSheet.Clicked += async (sender, e) =>
-            {
-                await Navigation.PushAsync(new MainPage4());
-            };
             Button MainPage = new Button
             {
-                Text = "MainPage",
+                Text = "Bottom Sheet",
                 FontSize = 30,
                 Margin = 30
             };
@@ -73,7 +51,7 @@ namespace CustomPickMe.View
             {
                 await Navigation.PushAsync(new MainPage());
             };
-            Content = new StackLayout
+            StackLayout stack = new StackLayout
             {
                 Padding = 40,
                 Children =
@@ -86,16 +64,19 @@ namespace CustomPickMe.View
                         {
                             PopupPicker,
                             PagePicker,
-                            MyCustomLayout,
-                            bottomDrawer,
-                            MybottomSheet,
                             MainPage
 
                         }
                     }
-                    
+
                 }
+            }; 
+            ScrollView scroll = new ScrollView
+            {
+                Content = stack
             };
+
+            Content = scroll;
         }
     }
 }

@@ -2,74 +2,135 @@
 using System.ComponentModel;
 using CustomPickMeMain;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace CustomPickMe.ViewFolder
 {
-    // https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        double x;
+        double y;
+        Frame _bottomSheetFrame;
+        StackLayout _bottomSheetStackLayout;
+        mycollectionview mycollectionview;
+        StackLayout _bottomSheetGestureAreaStackLayout;
+
+
         public MainPage()
         {
-            InitializeComponent();
+            AbsoluteLayout absoluteLayout = new AbsoluteLayout();
 
-            mycollectionview mycollectionview = new mycollectionview();
-            inFrameStackLayout.Children.Add(mycollectionview.stackLayout);
+            mycollectionview = new mycollectionview();
 
+            _bottomSheetFrame = new Frame
+            {
+                HasShadow = true,
+                CornerRadius = 20
+            };
+
+            _bottomSheetGestureAreaStackLayout = new StackLayout
+            {
+                Children = {new BoxView
+                {
+                    Margin=20,
+                    HeightRequest=8,
+                    CornerRadius=6,
+                    WidthRequest=70,
+                    BackgroundColor=Color.Gray,
+                    HorizontalOptions=LayoutOptions.Center
+                } }
+            };
+            var panGesture = new PanGestureRecognizer();
+            panGesture.PanUpdated += OnPanUpdated;
+            _bottomSheetGestureAreaStackLayout.GestureRecognizers.Add(panGesture);
+
+
+
+            _bottomSheetStackLayout = new StackLayout
+            {
+                Children = { _bottomSheetGestureAreaStackLayout, mycollectionview.stackLayout }
+            };
+
+            _bottomSheetFrame.Content = _bottomSheetStackLayout;
+
+            absoluteLayout.Children.Add(_bottomSheetFrame);
+
+            //bottomSheet.TranslateTo(bottomSheet.X, -300, 20);
+            //y = -300;
             BindingContext = new MainPageItem();
 
-        }
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            ((MainPageItem)BindingContext).IsVisible = true;
+            Content = absoluteLayout;
         }
 
-        // Important Code Lives Below
-        double x, y;
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            //((MainPageItem)BindingContext).IsVisible = true;
+
+        }
 
         void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
-            // Handle the pan
             switch (e.StatusType)
             {
                 case GestureStatus.Running:
-                    // Translate and ensure we don't y + e.TotalY pan beyond the wrapped user interface element bounds.
-                    var translateY = Math.Max(Math.Min(0, y + e.TotalY), -Math.Abs((Height * .25) - Height));
-                    bottomSheet.TranslateTo(bottomSheet.X, translateY, 20);
+
+                    double translateY;
+
+                    double toY = y + e.TotalY;
+
+                    translateY = Math.Max(toY, -Math.Abs((Height * 0.1) - Height));
+                    _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, translateY, 20);
+
                     break;
 
-                case GestureStatus.Completed:
-                    // Store the translation applied during the pan
-                    y = bottomSheet.TranslationY;
+                case GestureStatus.Completed: // 손 뗐을 때
+
+                    y = _bottomSheetFrame.TranslationY;
+                    x = _bottomSheetFrame.TranslationX;
+
+                    Console.WriteLine("**** GestureStatus.Completed");
+                    Console.WriteLine("**** bottomSheet.TranslationY: " + y);
+
+
+                    if (y > -10)
+                    {
+                        ((MainPageItem)BindingContext).IsVisible = false;
+                    }
 
                     //at the end of the event - snap to the closest location
-                    var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getClosestLockState(e.TotalY + y)));
+                    //var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getClosestLockState(e.TotalY + y)));
 
+                    /*
                     //depending on Swipe Up or Down - change the snapping animation
                     if (isSwipeUp(e))
                     {
-                        bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SpringIn);
+                        bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SinIn);
                     }
                     else
                     {
-                        bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SpringOut);
+                        bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SinOut);
                     }
 
                     //dismiss the keyboard after a transition
                     y = bottomSheet.TranslationY;
+                    */
 
                     break;
 
             }
 
         }
-
+        /*
         public bool isSwipeUp(PanUpdatedEventArgs e)
         {
             if (e.TotalY < 0)
             {
+                Console.WriteLine("**** isSwipeUp e.TotalY < 0 ****");
+
                 return true;
             }
+            Console.WriteLine("**** isSwipeUp e.TotalY >= 0 ****");
+
             return false;
         }
 
@@ -120,5 +181,7 @@ namespace CustomPickMe.ViewFolder
             var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getProportionCoordinate(.85)));
             bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 150, Easing.SpringIn);
         }
+    }
+        */
     }
 }

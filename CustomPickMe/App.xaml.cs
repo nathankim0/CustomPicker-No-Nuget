@@ -5,8 +5,8 @@ namespace CustomPickMe
 {
     public partial class App : Application
     {
-        public static int screenHeight, screenWidth;
-
+        public static double ScreenWidth;
+        public static double ScreenHeight;
         public App()
         {
             InitializeComponent();
