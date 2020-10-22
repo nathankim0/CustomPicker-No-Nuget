@@ -5,14 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d" x:Class="CustomPickMe.ViewFolder.MainPage">
     
-    <StackLayout x:Name="outerRelativeLayout">
-       
+    <RelativeLayout x:Name="outerRelativeLayout">
+        
+    <StackLayout Padding="10,20,0,0">
+        <Button Text="Category Select" FontSize="30" Clicked="Button_Clicked"/>
+    </StackLayout>
 
           <Frame HasShadow="true"
                  CornerRadius="20"
                  Padding="1,4,1,0"
+                 IsVisible="{Binding IsVisible}"
                  x:Name="bottomSheet" 
-                 >
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height,Factor=.9,Constant=0}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
 
               <StackLayout x:Name="bottomListStackLayout">
 
@@ -26,20 +35,7 @@
                       </StackLayout>
 
             </StackLayout>
+
           </Frame>
- </StackLayout>
-
+ </RelativeLayout>
 </ContentPage>
-
-                 <!--IsVisible="{Binding IsVisible}"
-RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                        Property=Height,Factor=.9,Constant=0}"
-                    RelativeLayout.WidthConstraint="{ConstraintExpression
-                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
-                    RelativeLayout.HeightConstraint="{ConstraintExpression
-                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"
- 
-    <StackLayout Padding="10,20,0,0">
-        <Button Text="Category Select" FontSize="30" Clicked="Button_Clicked"/>
-    </StackLayout>
--->

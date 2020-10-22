@@ -3,6 +3,7 @@ using System.ComponentModel;
 using CustomPickMeMain;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using PanGesture;
 
 namespace CustomPickMe.ViewFolder
 {
@@ -11,60 +12,148 @@ namespace CustomPickMe.ViewFolder
         double x;
         double y;
         Frame _bottomSheetFrame;
-        StackLayout _bottomSheetStackLayout;
+       // StackLayout _bottomSheetStackLayout;
         mycollectionview mycollectionview;
         StackLayout _bottomSheetGestureAreaStackLayout;
 
 
         public MainPage()
         {
-            AbsoluteLayout absoluteLayout = new AbsoluteLayout();
-
             mycollectionview = new mycollectionview();
-
-            _bottomSheetFrame = new Frame
-            {
-                HasShadow = true,
-                CornerRadius = 20
-            };
 
             _bottomSheetGestureAreaStackLayout = new StackLayout
             {
-                Children = {new BoxView
+                Children =
                 {
+                    new BoxView
+                    {
                     Margin=20,
                     HeightRequest=8,
                     CornerRadius=6,
                     WidthRequest=70,
                     BackgroundColor=Color.Gray,
                     HorizontalOptions=LayoutOptions.Center
-                } }
+                    },
+                    mycollectionview.stackLayout
+                }
             };
+
+            /*
             var panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += OnPanUpdated;
             _bottomSheetGestureAreaStackLayout.GestureRecognizers.Add(panGesture);
+            */
 
-
-
+            /*
             _bottomSheetStackLayout = new StackLayout
             {
                 Children = { _bottomSheetGestureAreaStackLayout, mycollectionview.stackLayout }
             };
+            */
 
-            _bottomSheetFrame.Content = _bottomSheetStackLayout;
-
-            absoluteLayout.Children.Add(_bottomSheetFrame);
+            _bottomSheetFrame = new Frame
+            {
+                HasShadow = true,
+                CornerRadius = 20,
+                Content = _bottomSheetGestureAreaStackLayout
+            };
+            //_bottomSheetFrame.SetBinding(Frame.IsVisibleProperty, "IsVisible");
 
             //bottomSheet.TranslateTo(bottomSheet.X, -300, 20);
             //y = -300;
+
             BindingContext = new MainPageItem();
 
-            Content = absoluteLayout;
+            RelativeLayout relativeLayout = new RelativeLayout();
+            relativeLayout.BackgroundColor = Color.FromHex("#FFB822");
+
+            /*
+            Button categoryButton = new Button
+            {
+                Text="category button"
+            };
+            categoryButton.Clicked += Button_Clicked;
+
+
+            relativeLayout.Children.Add(
+                categoryButton,
+                Constraint.RelativeToParent((parent) =>
+                {
+                    return parent.X +50;
+                }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Y + 50;
+            }),
+            Constraint.Constant(180),
+            Constraint.Constant(100));
+            */
+
+            relativeLayout.Children.Add(
+                new PanContainer
+            {
+                Content = _bottomSheetFrame
+            },
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.X;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Y * .8;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Width;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Height;
+            }));
+            Content = relativeLayout;
+
+            
+
+            /*
+            RelativeLayout relativeLayout1 = new RelativeLayout();
+            relativeLayout1.BackgroundColor = Color.Black;
+
+            relativeLayout1.Children.Add(
+                new PanContainer
+                {
+                    Content = new Label
+                    {
+                        Text = "Hello",
+                        BackgroundColor = Color.Aqua,
+                        WidthRequest = 300,
+                        HeightRequest = 300
+                    }
+                },
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.X;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Y * .8;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Width;
+            }),
+            Constraint.RelativeToParent((parent) =>
+            {
+                return parent.Height;
+            }));
+
+            Content = relativeLayout1;*/
         }
+
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            //((MainPageItem)BindingContext).IsVisible = true;
+            ((MainPageItem)BindingContext).IsVisible = true;
+            Console.WriteLine("**** button click");
 
         }
 
@@ -73,12 +162,7 @@ namespace CustomPickMe.ViewFolder
             switch (e.StatusType)
             {
                 case GestureStatus.Running:
-
-                    double translateY;
-
-                    double toY = y + e.TotalY;
-
-                    translateY = Math.Max(toY, -Math.Abs((Height * 0.1) - Height));
+                    var translateY = Math.Max(y + e.TotalY, -Math.Abs((Height * 0.1) - Height));
                     _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, translateY, 20);
 
                     break;

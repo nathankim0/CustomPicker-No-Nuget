@@ -1,14 +1,18 @@
-﻿<Properties StartupConfiguration="{5FE890C5-DF29-4725-88C2-A82BF50A5A2E}|Default">
+﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/HomePage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewFolder/MainPage.xaml.cs">
     <Files>
-      <File FileName="CustomPickMe/ViewFolder/MainPage.xaml.cs" Line="187" Column="2" NotebookId="1" />
-      <File FileName="CustomPickMe/HomePage.cs" Line="2" Column="1" NotebookId="1" />
+      <File FileName="CustomPickMe/ViewFolder/MainPage.xaml.cs" Line="74" Column="41" NotebookId="2" />
     </Files>
     <FloatingWindows>
       <FloatingWindow WindowId="1" X="2906" Y="47" Width="1545" Height="1203">
         <Files>
-          <File FileName="CustomPickMe/ViewFolder/MainPage.xaml" Line="26" Column="37" />
+          <File FileName="CustomPickMe/ViewFolder/MainPage.xaml" Line="19" Column="38" />
+        </Files>
+      </FloatingWindow>
+      <FloatingWindow WindowId="2" X="0" Y="23" Width="1280" Height="1317">
+        <Files>
+          <File FileName="CustomPickMe/PanContainer.cs" Line="26" Column="40" NotebookId="1" />
         </Files>
       </FloatingWindow>
     </FloatingWindows>
@@ -22,11 +26,12 @@
               </Node>
               <Node name="Model" expanded="True" />
               <Node name="ViewFolder" expanded="True">
-                <Node name="MainPage.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True">
+                  <Node name="MainPage.xaml.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="ViewModel" expanded="True" />
               <Node name="App.xaml" expanded="True" />
-              <Node name="HomePage.cs" selected="True" />
             </Node>
             <Node name="CustomPickMe.iOS" expanded="True" />
           </Node>
@@ -38,8 +43,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A3CB610F-5C77-4025-B9CA-67ED19CCEDD3" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.ItemProperties.CustomPickMe.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.00008030-0001619426E2802E" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
