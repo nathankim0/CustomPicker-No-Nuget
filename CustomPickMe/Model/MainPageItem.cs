@@ -8,7 +8,7 @@ namespace CustomPickMeMain
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _selected = "Category";
-        private bool _isVisible = false;
+        private bool _isVisible = true;
 
         public string Selected
         {

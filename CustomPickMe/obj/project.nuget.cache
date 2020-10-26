@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "yUP3ePmNbC0FFnbo3/Pp2ytUWU/bwtoBz9rtJuVqo1Y0XivAIqvmHU063vtqQKEMSXb16htwZBnuM7NPrT+3Xg==",
+  "dgSpecHash": "EugDh/F8ApPUq5249XnUzEFetZHhZ8WppS6QKvvoJfKNwEK0O9ltvgsKon0fjtSb66eeNPvF5JuY2Po0eLh5AQ==",
   "success": true,
   "projectFilePath": "/Users/nathan-kim/Projects/CustomPickMe/CustomPickMe/CustomPickMe.csproj",
   "expectedPackageFiles": [
+    "/Users/nathan-kim/.nuget/packages/coolbottomsheet/1.1.1/coolbottomsheet.1.1.1.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
-    "/Users/nathan-kim/.nuget/packages/xam.plugin.simplebottomdrawer/1.0.5/xam.plugin.simplebottomdrawer.1.0.5.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.forms/4.8.0.1560/xamarin.forms.4.8.0.1560.nupkg.sha512"
   ],

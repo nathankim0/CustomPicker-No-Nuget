@@ -11,8 +11,7 @@ namespace PanGesture
 
 		public PanContainer()
 		{
-			// Set PanGestureRecognizer.TouchPoints to control the 
-			// number of touch points needed to pan
+            BackgroundColor = Color.Accent;
 			var panGesture = new PanGestureRecognizer();
 			panGesture.PanUpdated += OnPanUpdated;
 			GestureRecognizers.Add(panGesture);
@@ -24,23 +23,32 @@ namespace PanGesture
 			{
 				case GestureStatus.Running:
 					Console.WriteLine("**** GestureStatus.Running: ");
+                    Console.WriteLine("**** Height: " + Height);
+                    Console.WriteLine("**** App.ScreenHeight: " + App.ScreenHeight);
 
-                    // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
+                    //Content.TranslationY = Math.Max(y + e.TotalY, 0);
+
+                    //Content.TranslationY=Math.Max(Math.Min(0, y + e.TotalY), -Math.Abs((Height * .25) - Height));
                     Content.TranslationY = y + e.TotalY;
 
-					Console.WriteLine("**** Content.TranslationY: " + Content.TranslationY);
+                    Console.WriteLine("**** Content.TranslationY: " + Content.TranslationY);
+
 					break;
 
 				case GestureStatus.Completed:
 					Console.WriteLine("**** GestureStatus.Completed: ");
-					// Store the translation applied during the pan
-					//x = Content.TranslationX;
-					y = Content.TranslationY;
 
+                    y = Content.TranslationY;
+
+
+                    /*
 					if (y > Height-100)
 					{
 						((MainPageItem)BindingContext).IsVisible = false;
 					}
+                    */
+
+
 					//at the end of the event - snap to the closest location
 					//var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getClosestLockState(e.TotalY + y)));
 

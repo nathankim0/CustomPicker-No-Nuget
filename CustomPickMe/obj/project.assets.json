@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "CoolBottomSheet/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.5.0.169047"
+        },
+        "compile": {
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -33,19 +45,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Numerics.Vectors.dll": {}
-        }
-      },
-      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Essentials": "1.5.0",
-          "Xamarin.Forms": "4.5.0.356"
-        },
-        "compile": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -80,6 +79,19 @@
     }
   },
   "libraries": {
+    "CoolBottomSheet/1.1.1": {
+      "sha512": "GcloOp6FtVtmFOrlWWYz9ud+e0iZOlLzCvsfBDF+2bq6aoPcqV3HpcWyXjQAQ+Cs5VwAPsJzI2cl0VnzB1eP+A==",
+      "type": "package",
+      "path": "coolbottomsheet/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "coolbottomsheet.1.1.1.nupkg.sha512",
+        "coolbottomsheet.nuspec",
+        "lib/netstandard2.0/CoolBottomSheet.dll"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -269,19 +281,6 @@
         "system.numerics.vectors.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
-      "sha512": "m/A/EwEeuICPuJb+IjF5apRNePAzyfIZE8CVlW4yISNqi37a6m++DY+HRteC2bDT+6QWWencNc3RT5dLHa438Q==",
-      "type": "package",
-      "path": "xam.plugin.simplebottomdrawer/1.0.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ic_launcher.png",
-        "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll",
-        "xam.plugin.simplebottomdrawer.1.0.5.nupkg.sha512",
-        "xam.plugin.simplebottomdrawer.nuspec"
       ]
     },
     "Xamarin.Essentials/1.5.3.2": {
@@ -651,8 +650,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "CoolBottomSheet >= 1.1.1",
       "NETStandard.Library >= 2.0.3",
-      "Xam.Plugin.SimpleBottomDrawer >= 1.0.5",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.8.0.1560"
     ]
@@ -692,15 +691,15 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "CoolBottomSheet": {
+            "target": "Package",
+            "version": "[1.1.1, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
-          },
-          "Xam.Plugin.SimpleBottomDrawer": {
-            "target": "Package",
-            "version": "[1.0.5, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

@@ -91,15 +91,15 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "CoolBottomSheet": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "Xam.Plugin.SimpleBottomDrawer": {
-              "target": "Package",
-              "version": "[1.0.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

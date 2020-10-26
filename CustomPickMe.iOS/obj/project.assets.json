@@ -2,17 +2,16 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
-      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+      "CoolBottomSheet/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.0",
-          "Xamarin.Forms": "4.5.0.356"
+          "Xamarin.Forms": "3.5.0.169047"
         },
         "compile": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -153,7 +152,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
+          "CoolBottomSheet": "1.1.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1560"
         },
@@ -166,17 +165,16 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
-      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+      "CoolBottomSheet/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.0",
-          "Xamarin.Forms": "4.5.0.356"
+          "Xamarin.Forms": "3.5.0.169047"
         },
         "compile": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -317,7 +315,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
+          "CoolBottomSheet": "1.1.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1560"
         },
@@ -330,17 +328,16 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
-      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+      "CoolBottomSheet/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.0",
-          "Xamarin.Forms": "4.5.0.356"
+          "Xamarin.Forms": "3.5.0.169047"
         },
         "compile": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -481,7 +478,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
+          "CoolBottomSheet": "1.1.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1560"
         },
@@ -494,17 +491,16 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
-      "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
+      "CoolBottomSheet/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Essentials": "1.5.0",
-          "Xamarin.Forms": "4.5.0.356"
+          "Xamarin.Forms": "3.5.0.169047"
         },
         "compile": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll": {}
+          "lib/netstandard2.0/CoolBottomSheet.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -645,7 +641,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xam.Plugin.SimpleBottomDrawer": "1.0.5",
+          "CoolBottomSheet": "1.1.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1560"
         },
@@ -659,17 +655,17 @@
     }
   },
   "libraries": {
-    "Xam.Plugin.SimpleBottomDrawer/1.0.5": {
-      "sha512": "m/A/EwEeuICPuJb+IjF5apRNePAzyfIZE8CVlW4yISNqi37a6m++DY+HRteC2bDT+6QWWencNc3RT5dLHa438Q==",
+    "CoolBottomSheet/1.1.1": {
+      "sha512": "GcloOp6FtVtmFOrlWWYz9ud+e0iZOlLzCvsfBDF+2bq6aoPcqV3HpcWyXjQAQ+Cs5VwAPsJzI2cl0VnzB1eP+A==",
       "type": "package",
-      "path": "xam.plugin.simplebottomdrawer/1.0.5",
+      "path": "coolbottomsheet/1.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ic_launcher.png",
-        "lib/netstandard2.0/Xam.Plugin.SimpleBottomDrawer.dll",
-        "xam.plugin.simplebottomdrawer.1.0.5.nupkg.sha512",
-        "xam.plugin.simplebottomdrawer.nuspec"
+        "LICENSE",
+        "coolbottomsheet.1.1.1.nupkg.sha512",
+        "coolbottomsheet.nuspec",
+        "lib/netstandard2.0/CoolBottomSheet.dll"
       ]
     },
     "Xamarin.Essentials/1.5.3.2": {

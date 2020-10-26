@@ -51,6 +51,18 @@ namespace CustomPickMe.View
             {
                 await Navigation.PushAsync(new MainPage4());
             };
+            Button MyPage = new Button
+            {
+                Text = "Bottom Sheet2",
+                FontSize = 30,
+                Margin = 30
+            };
+
+            MyPage.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new MyPage());
+            };
+
             StackLayout stack = new StackLayout
             {
                 Padding = 40,
@@ -64,8 +76,8 @@ namespace CustomPickMe.View
                         {
                             PopupPicker,
                             PagePicker,
-                            MainPage4
-
+                            MainPage4,
+                            MyPage
                         }
                     }
                 }
