@@ -10,8 +10,8 @@ namespace CustomPickMe
     {
         public CollectionView collectionView;
         public StackLayout stackLayout;
-        public Xamarin.Forms.SearchBar searchBar;
-
+        //public Xamarin.Forms.SearchBar searchBar;
+        public Entry searchBar;
 
         public mycollectionview()
         {
@@ -111,6 +111,20 @@ namespace CustomPickMe
             /* collectionView 끝 */
 
             // 목록 검색창
+            searchBar = new Entry
+            {
+                Margin = 10,
+                Placeholder = "Search items...",
+                BackgroundColor = Color.FromHex("#D3D3D3"),
+                //PlaceholderColor = Color.Silver,
+                //TextColor = Color.Black,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Editor)),
+                HeightRequest = 40,
+                ClearButtonVisibility=ClearButtonVisibility.WhileEditing
+            };
+
+            /*
+            // 목록 검색창
             searchBar = new Xamarin.Forms.SearchBar
             {
                 Margin = 10,
@@ -118,8 +132,9 @@ namespace CustomPickMe
                 //PlaceholderColor = Color.Silver,
                 //TextColor = Color.Black,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Xamarin.Forms.SearchBar)),
+                HeightRequest = 30
             };
-
+            */
             // 검색창 텍스트 입력시 이벤트
             searchBar.TextChanged += (sender, e) =>
             {

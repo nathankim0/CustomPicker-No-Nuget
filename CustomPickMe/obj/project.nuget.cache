@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "EugDh/F8ApPUq5249XnUzEFetZHhZ8WppS6QKvvoJfKNwEK0O9ltvgsKon0fjtSb66eeNPvF5JuY2Po0eLh5AQ==",
+  "dgSpecHash": "10T0EZJo+9UtE8ZJxADAyyh8/9Jkt9t50cRKG8DAV0p2TdnyJXVmtPkIhjDNUc7ekOpp/XsGdE9O0x8qojBvqg==",
   "success": true,
   "projectFilePath": "/Users/nathan-kim/Projects/CustomPickMe/CustomPickMe/CustomPickMe.csproj",
   "expectedPackageFiles": [
-    "/Users/nathan-kim/.nuget/packages/coolbottomsheet/1.1.1/coolbottomsheet.1.1.1.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",

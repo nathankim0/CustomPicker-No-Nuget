@@ -37,7 +37,6 @@ namespace CustomPickMe
                 double childHeight = childSizeRequest.Request.Height;
                 
                 
-
                 switch (child.HorizontalOptions.Alignment)
                 {
                     case LayoutAlignment.Start:

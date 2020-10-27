@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "NpoelYUA9QKnbPMkat/N8+iIWuPshPIJWWVOMDUxuPCSHrFicE9L4XsdbICy4ZU8um6JcB7f75DsG/LwWKrdSw==",
+  "dgSpecHash": "c1c86VviHClJSzY7BrvWUiwd+PgSRvLC3BktCdukMCwrRgVDJMiW+/TFmZjdB49o2ByWxlX2OKLvAPsWfqYZxg==",
   "success": true,
   "projectFilePath": "/Users/nathan-kim/Projects/CustomPickMe/CustomPickMe.iOS/CustomPickMe.iOS.csproj",
   "expectedPackageFiles": [
-    "/Users/nathan-kim/.nuget/packages/coolbottomsheet/1.1.1/coolbottomsheet.1.1.1.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
     "/Users/nathan-kim/.nuget/packages/xamarin.forms/4.6.0.1141/xamarin.forms.4.6.0.1141.nupkg.sha512"
   ],

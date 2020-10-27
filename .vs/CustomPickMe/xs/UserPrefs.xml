@@ -1,14 +1,6 @@
-﻿<Properties StartupConfiguration="{5FE890C5-DF29-4725-88C2-A82BF50A5A2E}|Default">
+﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewFolder/MainPage4.cs">
-    <Files>
-      <File FileName="CustomPickMe/ViewFolder/MyLayout.cs" Line="1" Column="1" />
-      <File FileName="CustomPickMe/PanContainer.cs" Line="27" Column="72" />
-      <File FileName="CustomPickMe/ViewFolder/MyPage.cs" Line="126" Column="45" />
-      <File FileName="CustomPickMe/mycollectionview.cs" Line="137" Column="15" />
-      <File FileName="CustomPickMe/ViewFolder/MainPage4.cs" Line="59" Column="1" />
-      <File FileName="CustomPickMe/ViewFolder/MainPage3.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -19,15 +11,13 @@
               </Node>
               <Node name="Model" expanded="True" />
               <Node name="ViewFolder" expanded="True">
-                <Node name="MainPage4.cs" selected="True" />
+                <Node name="PanContainer.cs" selected="True" />
               </Node>
               <Node name="ViewModel" expanded="True" />
               <Node name="App.xaml" expanded="True" />
             </Node>
             <Node name="CustomPickMe.Android" expanded="True" />
-            <Node name="CustomPickMe.iOS" expanded="True">
-              <Node name="Resources" expanded="True" />
-            </Node>
+            <Node name="CustomPickMe.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>

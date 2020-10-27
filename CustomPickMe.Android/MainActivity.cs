@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using StatusBarApp.Droid;
 
 namespace CustomPickMe.Droid
 {
@@ -28,6 +29,8 @@ namespace CustomPickMe.Droid
 
             App.ScreenWidth = (width - 0.5f) / density;
             App.ScreenHeight = (height - 0.5f) / density;
+
+            StatusBar.Activity = this;
 
             LoadApplication(new App());
         }

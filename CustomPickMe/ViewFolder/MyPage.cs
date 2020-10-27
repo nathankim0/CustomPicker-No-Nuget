@@ -1,7 +1,6 @@
 ﻿using System;
 using CustomPickMeMain;
 using Xamarin.Forms;
-
 namespace CustomPickMe.ViewFolder
 {
     public class MyPage : ContentPage
@@ -11,7 +10,7 @@ namespace CustomPickMe.ViewFolder
         Frame _bottomSheetFrame;
         StackLayout _bottomSheetStackLayout;
         mycollectionview mycollectionview;
-        StackLayout _bottomSheetGestureAreaStackLayout;
+        StackLayout _bottomSheetFrame_bottomSheetGestureAreaStackLayout;
 
         public MyPage()
         {
@@ -25,28 +24,25 @@ namespace CustomPickMe.ViewFolder
                 CornerRadius = 20
             };
 
-            _bottomSheetGestureAreaStackLayout = new StackLayout
+            BoxView box = new BoxView
             {
-                Children = {new BoxView
-                {
-                    Margin=20,
-                    HeightRequest=8,
-                    CornerRadius=6,
-                    WidthRequest=70,
-                    BackgroundColor=Color.Gray,
-                    HorizontalOptions=LayoutOptions.Center
-                } }
+                Margin = 5,
+                HeightRequest = 4,
+                CornerRadius = 5,
+                WidthRequest = 70,
+                BackgroundColor = Color.Gray,
+                HorizontalOptions = LayoutOptions.Center
             };
             var panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += OnPanUpdated;
-            _bottomSheetGestureAreaStackLayout.GestureRecognizers.Add(panGesture);
+            _bottomSheetFrame.GestureRecognizers.Add(panGesture);
 
 
             mycollectionview.stackLayout.Padding = 10;
 
             _bottomSheetStackLayout = new StackLayout
             {
-                Children = { _bottomSheetGestureAreaStackLayout, mycollectionview.stackLayout }
+                Children = { box, mycollectionview.stackLayout }
             };
 
             _bottomSheetFrame.Content = _bottomSheetStackLayout;
@@ -113,44 +109,29 @@ namespace CustomPickMe.ViewFolder
 
                     if (up == true)
                     {
+                        Console.WriteLine("@@@@ Up");
+                        Console.WriteLine("@@@@ y: " + y);
 
-                        if (y < Height - 150 && y > Height / 2 - 60)
+                        if (y > Height / 2 - 50)
                         {
-                            y = Height / 2 - 60;
+                            y = Height / 2 - 50;
                             _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, y, 100);
+                            mycollectionview.collectionView.HeightRequest = Height- y - 150;
                         }
-
-                        else if (y > Height - 150)
+                        else
                         {
-                            ((MainPageItem)BindingContext).IsVisible = false;
-                            y = Height - 150;
-                        }
-
-                        else if (y < Height / 2 - 60)
-                        {
-                            y = 100;
+                            y = 0;
                             _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, y, 100);
+                            mycollectionview.collectionView.HeightRequest = Height - 150;
                         }
+
                     }
                     else if (down == true)
                     {
-                        if (y < Height - 150 && y > Height / 2)
-                        {
-                            y = Height - 150;
-                            _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, y, 100);
-                        }
-
-                        else if (y > Height - 150)
-                        {
-                            ((MainPageItem)BindingContext).IsVisible = false;
-                            y = Height - 150;
-                        }
-
-                        else if (y < Height / 2)
-                        {
-                            y = Height / 2 - 60;
-                            _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, y, 100);
-                        }
+                        Console.WriteLine("@@@@ Down");
+                        Console.WriteLine("@@@@ y: "+ y);
+                        y = Height - 100;
+                        _bottomSheetFrame.TranslateTo(_bottomSheetFrame.X, y, 150);
                     }
 
                     break;
