@@ -1,23 +1,18 @@
 ﻿<Properties StartupConfiguration="{5A3B2C29-4E92-4966-A7BE-8C62F79728F1}|Default">
   <MonoDevelop.Ide.ItemProperties.CustomPickMe.Android PreferredExecutionTarget="Android.LMQ925L6127876c" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomPickMe/ViewFolder/MainPage1.cs">
+    <Files>
+      <File FileName="CustomPickMe/ViewFolder/MainPage1.cs" Line="111" Column="36" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CustomPickMe" expanded="True">
             <Node name="CustomPickMe" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Model" expanded="True" />
               <Node name="ViewFolder" expanded="True">
-                <Node name="PanContainer.cs" selected="True" />
+                <Node name="MainPage1.cs" selected="True" />
               </Node>
-              <Node name="ViewModel" expanded="True" />
-              <Node name="App.xaml" expanded="True" />
             </Node>
-            <Node name="CustomPickMe.Android" expanded="True" />
-            <Node name="CustomPickMe.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
